@@ -40,7 +40,7 @@ A *datetime* is a date and time of day represented by a *time number*, a *timest
 `X` can be a single element (<code>X<sub>R</sub></code>) or a 2-element vector (<code>X<sub>Y</sub> X<sub>R</sub></code>). Each of <code>X<sub>Y</sub></code> and <code>X<sub>R</sub></code> can be:
 
 - an integer *datetime code* (see [](#timenumbers) and [](#timestamps))
-- a character vector containing a *pattern* that describes how a datetime is formatted as text (see [Formatting Patterns](#formatting-patterns)).
+- a character vector containing a *pattern* that describes how a datetime is formatted as text.
 
 When <code>X<sub>R</sub></code> is an integer it must be either `0` or a code from [](#timenumbers) or [](#timestamps). `0` specifies that the elements of `Y` are [to be validated](#validating-datetimes); a non-zero value specifies the datetime representation to which the elements of `Y` are to be converted. When <code>X<sub>R</sub></code> is a pattern, the elements of `R` are character vectors, each derived by formatting the corresponding element of `Y` as text according to the pattern.
 
@@ -64,7 +64,7 @@ Time numbers in `R` can be of type DECF even when [`⎕FR`](fr.md) is `645` if t
 
 `⎕DT` has two [variant options](#variant-options), `Language` and `Dictionary`, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md). They apply only when <code>X<sub>Y</sub></code> and/or <code>X<sub>R</sub></code> are patterns.
 
-## Time Numbers
+### Time Numbers
 
 If a value in `X` is positive it indicates that a time number type is expected in `Y` or generated in `R`, as follows. Note that the last column indicated whether (Yes) or not (No) negative numbers are allowed.
 
@@ -113,7 +113,7 @@ Table: Time numbers { #timenumbers }
 |Misc. Operating Systems|||||
 | `70` |AmigaOS|Tick count 1&nbsp;ms ticks[^3]|1978-01-01 00:00|No|
 
-<h3 class="example">Examples: Time number to time number</h3>
+<h4 class="example">Examples: Time number to time number</h4>
 
 ```apl
       2 1 ⎕DT 3⊃⎕FRDCI 1 1
@@ -125,7 +125,7 @@ Table: Time numbers { #timenumbers }
 ¯5
 ```
 
-<h3 class="example">Examples: Time number to timestamp</h3>
+<h4 class="example">Examples: Time number to timestamp</h4>
 
 ```apl
       1 ¯1 ⎕DT 0 43508.42843
@@ -146,7 +146,7 @@ Table: Time numbers { #timenumbers }
 └──────────────┘
 ```
 
-## Timestamps
+### Timestamps
 
 If a value in `X` is negative it indicates that a timestamp type is expected in `Y` or generated in `R`, as follows:
 
@@ -166,7 +166,7 @@ Table: Timestamps { #timestamps }
 | DateTimePicker ||||
 | `¯30` | DateTime format                              | 4            | International Day Number, hour, minute, second               | `0 0 0 0`                              |
 
-<h3 class="example">Examples: Timestamp to time number</h3>
+<h4 class="example">Examples: Timestamp to time number</h4>
 
 ```apl
       ¯1 1 ⎕DT ⊂⎕TS
@@ -185,7 +185,7 @@ Table: Timestamps { #timestamps }
 
 ```
 
-<h3 class="example">Examples: Timestamp to timestamp</h3>
+<h4 class="example">Examples: Timestamp to timestamp</h4>
 
 ```apl
       ¯30 ⎕DT ⊂⎕TS
@@ -199,7 +199,7 @@ Table: Timestamps { #timestamps }
 └───────────────────┘
 ```
 
-## Military Time Zone Characters
+### Military Time Zone Characters
 
 Any element in `Y` can be specified as a military time zone character and is implicitly replaced by the current time in the time zone they represent. The time zones and their characters are detailed in [](#timezones).
 
@@ -236,7 +236,7 @@ Table: Military time zones { #timezones }
 
 The resolutions of system clocks vary by platform.
 
-<h3 class="example">Example</h3>
+<h4 class="example">Example</h4>
 
 The following expression returns UTC in `⎕TS`-form (`⎕TS` gives local time):
 
@@ -245,7 +245,7 @@ The following expression returns UTC in `⎕TS`-form (`⎕TS` gives local time):
 2026 8 10 19 9 12 120
 ```
 
-## Formatting Patterns
+### Formatting Patterns
 
 Either or both of <code>X<sub>R</sub></code> and <code>X<sub>Y</sub></code> can be a character vector containing a *pattern* which describes how a datetime is, or is to be, formatted as text.
 
@@ -300,7 +300,7 @@ The upper and lower case letters, underscore `_`, dollar `$`, and percent `%` ar
 !!! Info "Information"
     The characters `AaaaBbbb` consist of two adjacent format sequences because there is a sequence of As followed by a sequence of Bs. The characters `AaaaAaaa` consist of one format sequence because it only contains `A`s. It can be separated into two format sequences by inserting an empty `"`- or `'`-delimited string, for example, `Aaaa""Aaaa`.
 
-<h3 class="example">Examples</h3>
+<h4 class="example">Examples</h4>
 
 ```apl
       dt←1 ⎕DT ⊂2019 2 13 10 16 56
@@ -318,6 +318,26 @@ The upper and lower case letters, underscore `_`, dollar `$`, and percent `%` ar
 ┌─────────────────────────────┐
 │ISO date: 2019-02-13T10:16:56│
 └─────────────────────────────┘
+```
+
+## Validating Datetimes
+
+When <code>X<sub>R</sub></code> is `0`, `⎕DT` validates the elements of `Y` instead of converting them, interpreting each according to <code>X<sub>Y</sub></code> as described above. `R` is a Boolean with a `1` for each element of `Y` that represents a valid datetime and a `0` for each that does not.
+
+<h3 class="example">Examples</h3>
+
+```apl
+      0 ⎕DT ⎕TS (2020 13 1) 'J' 'DT' #
+1 0 1 0 0
+
+      ¯30 0 ⎕DT⊂32000 15 10 0
+1
+
+      'DD/MM/YYYY' 0 ⎕DT '13/02/2019' '31/02/2019'
+1 0
+
+      'YYYY-MM-DD' 0 ⎕DT '1900-02-29' '2000-02-29'
+0 1
 ```
 
 ## Language
@@ -549,26 +569,6 @@ In the above example:
 ┌───────────────────────┐
 │the date is 13 Chw 2019│
 └───────────────────────┘
-```
-
-## Validating Datetimes
-
-When <code>X<sub>R</sub></code> is `0`, `⎕DT` validates the elements of `Y` instead of converting them, interpreting each according to <code>X<sub>Y</sub></code> as described above. `R` is a Boolean with a `1` for each element of `Y` that represents a valid datetime and a `0` for each that does not.
-
-<h3 class="example">Examples</h3>
-
-```apl
-      0 ⎕DT ⎕TS (2020 13 1) 'J' 'DT' #
-1 0 1 0 0
-
-      ¯30 0 ⎕DT⊂32000 15 10 0
-1
-
-      'DD/MM/YYYY' 0 ⎕DT '13/02/2019' '31/02/2019'
-1 0
-
-      'YYYY-MM-DD' 0 ⎕DT '1900-02-29' '2000-02-29'
-0 1
 ```
 
 [^1]: The epoch is the datetime represented by 0 in the [proleptic Gregorian calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar).
