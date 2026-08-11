@@ -26,14 +26,18 @@ Convert a `⎕TS`-style timestamp to a Dyalog Date Number, then back to a timest
 
 ## Definitions
 
-A *datetime* is a date and time of day represented by a *time number*, a *timestamp*, a *military time-zone character*, or a *text-formatted datetime*.
+### Right Argument
+
+`Y` is an array of any shape whose elements are datetimes, in any combination of representations. A *datetime* is a date and time of day represented by a *time number*, a *timestamp*, a *military time-zone character*, or a *text-formatted datetime*:
 
 - A [*time number*](#time-numbers) is a datetime expressed as a scalar numeric value, of which there are several different sorts (principally a [Dyalog Date Number](#timenumbers)).
 - A [*timestamp*](#timestamps) is a datetime expressed as a multiple element numeric vector, of which there are several different sorts (principally [`⎕TS`](ts.md) format).
 - A [*military time zone character*](#military-time-zone-characters) is a scalar character that represents the current datetime ("now") in a particular time zone. For example, `'A'` represents the current datetime ([UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)) + 1 hour.
 - A *text-formatted datetime* is a datetime expressed as a character vector, formatted according to a [*formatting pattern*](#formatting-patterns).
 
-`Y` is an array of any shape whose elements contain a time number, timestamp, military time zone character, or text-formatted datetime, in any combination.
+A single text-formatted datetime in `Y` must be enclosed (nested); an unenclosed character vector in `Y` is interpreted as a vector of military time zone characters. Character scalars in `Y` are always interpreted as meaning "now".
+
+### Left Argument
 
 `X` describes the representation to which the elements of `Y` are to be converted (the output format) and, optionally, the representation of the elements of `Y` (the input format). These are referred to below as <code>X<sub>R</sub></code> and <code>X<sub>Y</sub></code> respectively.
 
@@ -51,9 +55,9 @@ When <code>X<sub>R</sub></code> is an integer it must be either `0` or a code fr
 
 When <code>X<sub>Y</sub></code> is an integer datetime code it explicitly specifies the datetime representation of the numeric elements of `Y`. When <code>X<sub>Y</sub></code> is a pattern, the corresponding character vectors in `Y` are matched against the pattern and the resulting datetime are returned in the representation given by <code>X<sub>R</sub></code> (see [Pattern matching rules](#pattern-matching-rules)). A pattern <code>X<sub>Y</sub></code> cannot be omitted, even when the elements of `Y` are character vectors that could unambiguously be assumed to be text-formatted datetimes.
 
-Text-formatted datetimes and patterns are character vectors; no scalar extension occurs when character scalars appear in `X` or `Y`. A single text-formatted datetime in `Y` must be enclosed (nested); an unenclosed character vector in `Y` is interpreted as a vector of military time zone characters. As a convenience, a simple (not nested) character vector `X` is implicitly enclosed and processed as <code>X<sub>R</sub></code> meaning that a single pattern can be supplied on its own to format datetimes as text.
+Text-formatted datetimes and patterns are character vectors; no scalar extension occurs when character scalars appear in `X` or `Y`. As a convenience, a simple (not nested) character vector `X` is implicitly enclosed and processed as <code>X<sub>R</sub></code> meaning that a single pattern can be supplied on its own to format datetimes as text.
 
-Character scalars in `Y` are always interpreted as meaning "now".
+### Result
 
 `R` is an array of the same shape as `Y`, where each element is a timestamp, time number, character vector or Boolean value, as determined by <code>X<sub>R</sub></code> (the second or only element of `X`).
 
@@ -61,8 +65,6 @@ Time numbers in `R` can be of type DECF even when [`⎕FR`](fr.md) is `645` if t
 
 !!! Warning "Warning"
     Performing arithmetic on such time numbers while [`⎕FR`](fr.md) is `645` can lose precision or signal `DOMAIN ERROR`. To compute with them accurately, set `⎕FR` to `1287` (128-bit decimal) first.
-
-`⎕DT` has two [variant options](#variant-options), `Language` and `Dictionary`, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md). They apply only when <code>X<sub>Y</sub></code> and/or <code>X<sub>R</sub></code> are patterns.
 
 ### Time Numbers
 
@@ -442,7 +444,7 @@ If a pattern is rejected, or a text-formatted datetime cannot be matched against
 
 ## Variant Options
 
-`⎕DT` supports the `Language` and `Dictionary` variant options, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md) and summarised in [](#variantoptionsfordt). These only apply when <code>X<sub>Y</sub></code> and/or <code>X<sub>R</sub></code> are patterns.
+`⎕DT` has two variant options, `Language` and `Dictionary`, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md) and summarised in [](#variantoptionsfordt). They apply only when <code>X<sub>Y</sub></code> and/or <code>X<sub>R</sub></code> are patterns.
 
 Table: Variant options for `⎕DT` { #variantoptionsfordt }
 
