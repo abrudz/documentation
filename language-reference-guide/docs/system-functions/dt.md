@@ -58,7 +58,7 @@ Time numbers in `R` can be of type DECF even when [`⎕FR`](fr.md) is `645` if t
 !!! Warning "Warning"
     Performing arithmetic on such time numbers while [`⎕FR`](fr.md) is `645` can lose precision or signal `DOMAIN ERROR`. To compute with them accurately, set `⎕FR` to `1287` (128-bit decimal) first.
 
-`⎕DT` has two [variant options](#variant-options), `Language` and `Dictionary`, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md). They apply only when <code>X<sub>Y</sub></code> and/or <code>X<sub>R</sub></code> are patterns; the principal option is `Language`.
+`⎕DT` has two [variant options](#variant-options), `Language` and `Dictionary`, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md). They apply only when <code>X<sub>Y</sub></code> and/or <code>X<sub>R</sub></code> are patterns.
 
 ## Time Numbers
 
