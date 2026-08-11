@@ -7,25 +7,9 @@ search:
 
 This function validates datetimes and converts datetimes between one representation and another, including textual representations.
 
-A *datetime* is a date and time of day represented by a *time number*, a *timestamp*, a *military time-zone character*, or a *text-formatted datetime*.
-
-- A [*time number*](#time-numbers) is a datetime expressed as a scalar numeric value, of which there are several different sorts (principally a [Dyalog Date Number](#timenumbers)).
-- A [*timestamp*](#timestamps) is a datetime expressed as a multiple element numeric vector, of which there are several different sorts (principally [`⎕TS`](ts.md) format).
-- A [*military time zone character*](#military-time-zone-characters) is a scalar character that represents the current datetime ("now") in a particular time zone. For example, `'A'` represents the current datetime ([UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)) + 1 hour.
-- A *text-formatted datetime* is a datetime expressed as a character vector, formatted according to a [*formatting pattern*](#formatting-patterns).
-
 ## Syntax
 
-`Y` is an array of any shape whose elements contain a time number, timestamp, military time zone character, or text-formatted datetime, in any combination.
-
-`X` describes the representation to which the elements of `Y` are to be converted (the output format) and, optionally, the representation of the elements of `Y` (the input format). These are referred to below as <code>X<sub>R</sub></code> and <code>X<sub>Y</sub></code> respectively.
-
-`X` can be a single element (<code>X<sub>R</sub></code>) or a 2-element vector (<code>X<sub>Y</sub> X<sub>R</sub></code>). Each of <code>X<sub>Y</sub></code> and <code>X<sub>R</sub></code> can be:
-
-- an integer *datetime code* (see [](#timenumbers) and [](#timestamps))
-- a character vector containing a *pattern* that describes how a datetime is formatted as text (see [Formatting Patterns](#formatting-patterns)).
-
-When <code>X<sub>R</sub></code> is an integer it must be either `0` or a code from [](#timenumbers) or [](#timestamps). `0` specifies that the elements of `Y` are [to be validated](#validating-datetimes); a non-zero value specifies the datetime representation to which the elements of `Y` are to be converted. When <code>X<sub>R</sub></code> is a pattern, the elements of `R` are character vectors, each derived by formatting the corresponding element of `Y` as text according to the pattern.
+`Y` is an array of datetimes to be validated or converted. `X` specifies the representation to convert them to and, optionally, the representation in which they are supplied. The representations, and the full rules for `X` and `Y`, are given in [Definitions](#definitions) below.
 
 <h3 class="example">Example</h3>
 
@@ -39,6 +23,26 @@ Convert a `⎕TS`-style timestamp to a Dyalog Date Number, then back to a timest
 │2019 2 13 10 16 56 352│
 └──────────────────────┘
 ```
+
+## Definitions
+
+A *datetime* is a date and time of day represented by a *time number*, a *timestamp*, a *military time-zone character*, or a *text-formatted datetime*.
+
+- A [*time number*](#time-numbers) is a datetime expressed as a scalar numeric value, of which there are several different sorts (principally a [Dyalog Date Number](#timenumbers)).
+- A [*timestamp*](#timestamps) is a datetime expressed as a multiple element numeric vector, of which there are several different sorts (principally [`⎕TS`](ts.md) format).
+- A [*military time zone character*](#military-time-zone-characters) is a scalar character that represents the current datetime ("now") in a particular time zone. For example, `'A'` represents the current datetime ([UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)) + 1 hour.
+- A *text-formatted datetime* is a datetime expressed as a character vector, formatted according to a [*formatting pattern*](#formatting-patterns).
+
+`Y` is an array of any shape whose elements contain a time number, timestamp, military time zone character, or text-formatted datetime, in any combination.
+
+`X` describes the representation to which the elements of `Y` are to be converted (the output format) and, optionally, the representation of the elements of `Y` (the input format). These are referred to below as <code>X<sub>R</sub></code> and <code>X<sub>Y</sub></code> respectively.
+
+`X` can be a single element (<code>X<sub>R</sub></code>) or a 2-element vector (<code>X<sub>Y</sub> X<sub>R</sub></code>). Each of <code>X<sub>Y</sub></code> and <code>X<sub>R</sub></code> can be:
+
+- an integer *datetime code* (see [](#timenumbers) and [](#timestamps))
+- a character vector containing a *pattern* that describes how a datetime is formatted as text (see [Formatting Patterns](#formatting-patterns)).
+
+When <code>X<sub>R</sub></code> is an integer it must be either `0` or a code from [](#timenumbers) or [](#timestamps). `0` specifies that the elements of `Y` are [to be validated](#validating-datetimes); a non-zero value specifies the datetime representation to which the elements of `Y` are to be converted. When <code>X<sub>R</sub></code> is a pattern, the elements of `R` are character vectors, each derived by formatting the corresponding element of `Y` as text according to the pattern.
 
 <code>X<sub>Y</sub></code> can be omitted only when the elements of `Y` are Dyalog Date Numbers, `⎕TS`-style timestamps, or military time zone characters. When <code>X<sub>Y</sub></code> is omitted, the numeric elements of `Y` are interpreted as follows:
 
