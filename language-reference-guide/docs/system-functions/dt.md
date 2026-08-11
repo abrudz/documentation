@@ -14,6 +14,8 @@ A *datetime* is a date and time of day represented by a *time number*, a *timest
 - A [*military time zone character*](#military-time-zone-characters) is a scalar character that represents the current datetime ("now") in a particular time zone. For example, `'A'` represents the current datetime ([UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)) + 1 hour.
 - A *text-formatted datetime* is a datetime expressed as a character vector, formatted according to a [*formatting pattern*](#formatting-patterns).
 
+## Syntax
+
 `Y` is an array of any shape whose elements contain a time number, timestamp, military time zone character, or text-formatted datetime, in any combination.
 
 `X` describes the representation to which the elements of `Y` are to be converted (the output format) and, optionally, the representation of the elements of `Y` (the input format). These are referred to below as <code>X<sub>R</sub></code> and <code>X<sub>Y</sub></code> respectively.
@@ -24,6 +26,19 @@ A *datetime* is a date and time of day represented by a *time number*, a *timest
 - a character vector containing a *pattern* that describes how a datetime is formatted as text (see [Formatting Patterns](#formatting-patterns)).
 
 When <code>X<sub>R</sub></code> is an integer it must be either `0` or a code from [](#timenumbers) or [](#timestamps). `0` specifies that the elements of `Y` are [to be validated](#validating-datetimes); a non-zero value specifies the datetime representation to which the elements of `Y` are to be converted. When <code>X<sub>R</sub></code> is a pattern, the elements of `R` are character vectors, each derived by formatting the corresponding element of `Y` as text according to the pattern.
+
+<h3 class="example">Example</h3>
+
+Convert a `⎕TS`-style timestamp to a Dyalog Date Number, then back to a timestamp:
+
+```apl
+      1 ⎕DT ⊂2019 2 13 10 16 56
+43508.42843
+      ¯1 ⎕DT 43508.42843
+┌──────────────────────┐
+│2019 2 13 10 16 56 352│
+└──────────────────────┘
+```
 
 <code>X<sub>Y</sub></code> can be omitted only when the elements of `Y` are Dyalog Date Numbers, `⎕TS`-style timestamps, or military time zone characters. When <code>X<sub>Y</sub></code> is omitted, the numeric elements of `Y` are interpreted as follows:
 
@@ -42,6 +57,8 @@ Time numbers in `R` can be of type DECF even when [`⎕FR`](fr.md) is `645` if t
 
 !!! Warning "Warning"
     Performing arithmetic on such time numbers while [`⎕FR`](fr.md) is `645` can lose precision or signal `DOMAIN ERROR`. To compute with them accurately, set `⎕FR` to `1287` (128-bit decimal) first.
+
+`⎕DT` has two [variant options](#variant-options), `Language` and `Dictionary`, specified using the _variant_ operator [`⍠`](../primitive-operators/variant.md). They apply only when <code>X<sub>Y</sub></code> and/or <code>X<sub>R</sub></code> are patterns; the principal option is `Language`.
 
 ## Time Numbers
 
@@ -277,7 +294,7 @@ Table: Formatting sequences { #formatseq }
 The upper and lower case letters, underscore `_`, dollar `$`, and percent `%` are all reserved for introducing format sequences, even though not all currently have meaning. The remaining, non-reserved, characters are copied to the result unchanged; this means that the format string `hh:mm` represents the hour of the day and minute of the hour, separated by a colon (for example `12:00`). All characters or sequences of characters can be delimited by `"` or `'` at any point in the format string to prevent them from being interpreted as a part of a format sequence, and, within these delimiters, two adjacent delimiter characters produce a single delimiter.
 
 !!! Info "Information"
-    The characters `AaaaBbbb` consist of two adjacent format sequences because there is a sequence of As followed by a sequence of Bs. The characters `AaaaAaaa` consist of one format sequence because it only contains `A`s. It can be separated into two format sequences by inserting an empty `"` or `'` - delimited string, for example, `Aaaa""Aaaa`.
+    The characters `AaaaBbbb` consist of two adjacent format sequences because there is a sequence of As followed by a sequence of Bs. The characters `AaaaAaaa` consist of one format sequence because it only contains `A`s. It can be separated into two format sequences by inserting an empty `"`- or `'`-delimited string, for example, `Aaaa""Aaaa`.
 
 <h3 class="example">Examples</h3>
 
@@ -375,7 +392,7 @@ Some combinations of variable-length substitutions can make particular texts imp
 
 The formatted text is parsed and used to compute a datetime according to the given pattern, and must precisely match the text that would be produced if the resulting datetime were formatted using that same pattern. That is:
 
-- The formatted text must contain valid substitution text where a format sequence appears in the pattern — for example, a full month name where `Mmmm` appears in the pattern.
+- The formatted text must contain valid substitution text where a format sequence appears in the pattern – for example, a full month name where `Mmmm` appears in the pattern.
 - All other characters, including spaces and literal characters, must exactly match the pattern.
 - All characters must be in the correct case.
 - The elements in the formatted text must be consistent with one another. If the pattern contains the same element (or variations of the same element) more than once, they must have the same value in each case. Elements that are not independent must not be contradictory. For example, the text `Mon 5 Feb 2025` superficially appears to match the pattern `Ddd D Mmm YYYY` but is contradictory, because 5 February 2025 was a Wednesday, not a Monday.
