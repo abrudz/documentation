@@ -168,7 +168,7 @@ Table: Output formats { #outputformats }
 
 `R` is an array of the same shape as `Y`, where each element is a [time number](#time-numbers), [timestamp](#timestamps), [text-formatted datetime](#text-formatted-datetimes), or Boolean validity value, as determined by the [output format](#output-formats).
 
-Time numbers in `R` can be [128-bit decimal floating point values](../../../programming-reference-guide/introduction/128-bit-decimal-floating-point) even when [`⎕FR`](fr.md) is `645` if their magnitudes could be too great to store precisely as 64-bit binary floating point values. See [](#timenumbersorts) for the time numbers where this is so.
+Time numbers in `R` can be [128-bit decimal floating point values](../../programming-reference-guide/introduction/128-bit-decimal-floating-point.md) even when [`⎕FR`](fr.md) is `645` if their magnitudes could be too great to store precisely as 64-bit binary floating point values. See [](#timenumbersorts) for the time numbers where this is so.
 
 !!! Warning "Warning"
     Performing arithmetic on such time numbers while `⎕FR` is `645` can lose precision or signal `DOMAIN ERROR`. To handle them accurately, set `⎕FR` to `1287` (128-bit decimal) first.
@@ -676,7 +676,7 @@ In the above example:
 [^1]: The epoch is the datetime represented by `0` in the [proleptic Gregorian calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar).
 [^2]: Are negative values allowed? No datetime can represent a date before the year `¯4713`.
 [^3]: There are the same number of ticks per day regardless of leap seconds.
-[^4]: Due to their possible magnitude, these are generated as [128-bit decimal floating point values](../../../programming-reference-guide/introduction/128-bit-decimal-floating-point) regardless of the setting of [`⎕FR`](fr.md).
+[^4]: Due to their possible magnitude, these are generated as [128-bit decimal floating point values](../../programming-reference-guide/introduction/128-bit-decimal-floating-point.md) regardless of the setting of [`⎕FR`](fr.md).
 [^5]: For negative numbers, the integral part counts backward from 1899-12-30 and the fractional part counts forward from the date so reached.
 [^6]: Excel supports two time number conventions. On Windows the 1900 Date System is the default and on macOS the 1904 Date System is the default. Both systems can use either convention and the convention in use is stored in the worksheet so that the platforms interoperate.
 [^7]: Count includes the invalid date 1900-02-29.
