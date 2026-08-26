@@ -4,11 +4,11 @@ This parameter specifies one or more *Session initialisation* directories that c
 
 Under Windows these might be:
 
-1. `C:\Program Files\Dyalog\Dyalog APL-64 19.0 Unicode`
+1. `C:/Program Files/Dyalog/Dyalog APL-64 19.0 Unicode`
 
-2. `C:\Users\Pete\Documents\Dyalog APL Files`
+2. `C:/Users/Pete/Documents/Dyalog APL Files`
 
-3. `C:\Users\Pete\Documents\Dyalog APL-64 19.0 Unicode Files`
+3. `C:/Users/Pete/Documents/Dyalog APL-64 19.0 Unicode Files`
 
 The version-specific name is :
 ```apl

@@ -9,8 +9,8 @@ Alternatively, type `)ED` followed by the pathname to the file. To identify the 
 <h2 class="example">Examples</h2>
 
 ```apl
-      )ED c:\myfiles\myscript.dyalog
-      )ED c:\myfiles\pete.txt
+      )ED c:/myfiles/myscript.dyalog
+      )ED c:/myfiles/pete.txt
       )ED \x.txt  ⍝ x.txt in current directory
       )ED / x.txt ⍝ ditto
 ```

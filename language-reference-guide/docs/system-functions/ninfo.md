@@ -187,7 +187,7 @@ The `Recurse` variant option determines whether, and to how many levels, sub-dir
 The next set of examples illustrates the use of the `Recurse` variant option to limit the sub-directory depth.
 
 ```apl
-      Y←'d:\bouzouki\*.*'
+      Y←'d:/bouzouki/*.*'
       ⍴⊃0(⎕NINFO⍠('Wildcard' 1)('Recurse' 0))Y
 355
       ⍴⊃0(⎕NINFO⍠('Wildcard' 1)('Recurse' (1 0)))Y

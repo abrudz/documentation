@@ -39,12 +39,12 @@ Note that a *raw* mapped file may be updated *only* if its *file offset* is 0. N
 
 Map raw file as a read-only *vector* of doubles:
 ```apl
-      vec←645 ¯1 ⎕MAP'c:\myfile'
+      vec←645 ¯1 ⎕MAP'c:/myfile'
 ```
 
 Map raw file as a 20-column read-write *matrix* of 1-byte integers:
 ```apl
-      mat←83 ¯1 20 ⎕MAP'c:\myfile' 'W' 
+      mat←83 ¯1 20 ⎕MAP'c:/myfile' 'W' 
 ```
 
 Replace some items in mapped file:
@@ -54,22 +54,22 @@ Replace some items in mapped file:
 
 Map bytes 100-160 in raw file as a `5×2` read-only matrix of doubles:
 ```apl
-      dat←645 5 2 ⎕MAP'c:\myfile' 'R' 80
+      dat←645 5 2 ⎕MAP'c:/myfile' 'R' 80
 ```
 
 Put simple 4-byte integer array on disk ready for mapping:
 ```apl
-      (⊃83 323 ⎕DR 2 3 4⍴⍳24)∆MPUT'c:\myvar'
+      (⊃83 323 ⎕DR 2 3 4⍴⍳24)∆MPUT'c:/myvar'
 ```
 
 Then, map a read-write variable:
 ```apl
-      var←⎕MAP'c:\myvar' 'w' 
+      var←⎕MAP'c:/myvar' 'w' 
 ```
 
 Note that a mapped array need not be *named*. In the following example, a 'raw' file is mapped, summed and released, all in a single expression:
 ```apl
-      +/163 ¯1 ⎕MAP'c:\shorts.dat'
+      +/163 ¯1 ⎕MAP'c:/shorts.dat'
 42
 ```
 

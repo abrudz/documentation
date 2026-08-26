@@ -42,7 +42,7 @@ In the examples that follow, the `FHist` function is used below to format the re
 
 <h1 class="example">Examples</h1>
 ```apl
-     'c:\temp'⎕FCREATE 1 ⋄ FHist 1
+     'c:/temp'⎕FCREATE 1 ⋄ FHist 1
                User  TimeStamp            
  Created       0     2012-01-14 12:29:53  
  Undefined     0     1970-01-01 00:00:00  
@@ -60,7 +60,7 @@ In the examples that follow, the `FHist` function is used below to format the re
  
       ⎕FUNTIE 1
 
-      'c:\temp'⎕FCREATE 1 ⋄ FHist 1
+      'c:/temp'⎕FCREATE 1 ⋄ FHist 1
                User  TimeStamp            
  Created       0     2012-01-14 12:29:53  
  Undefined     0     1970-01-01 00:00:00  

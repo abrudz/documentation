@@ -123,7 +123,7 @@ If `Y[4]` does specify that the data contains a header, then `R` is a 2-element 
 
 ![csv_excel](../img/csv-excel.png)
 ```apl
-      ⊃⎕NGET CSVFile←'c:\Dyalog16.0\sales.csv'
+      ⊃⎕NGET CSVFile←'c:/Dyalog16.0/sales.csv'
 ┌→───────────────────────────────────────────────┐
 │Product,Sales                                   │
 │             Widgets,1912                       │
@@ -298,7 +298,7 @@ Otherwise, `R` is the CSV data in the format specified in Y, and is not shy.
 
 <h3 class="example">Examples</h3>
 ```apl
-       CSVFile←'c:\Dyalog16.0\sales.csv'
+       CSVFile←'c:/Dyalog16.0/sales.csv'
        ⎕←DATA HDR←⎕CSV CSVFile''(1 2)1
 ┌→──────────────────────────────────────────┐
 │ ┌→────────────────┐ ┌→──────────────────┐ │
@@ -330,7 +330,7 @@ Otherwise, `R` is the CSV data in the format specified in Y, and is not shy.
 │             │
 └─────────────┘
 
-       CSVFile1←'c:\Dyalog16.0\sales1.csv'
+       CSVFile1←'c:/Dyalog16.0/sales1.csv'
        ⎕←DATA HDR ⎕CSV CSVFile1
   
 67
