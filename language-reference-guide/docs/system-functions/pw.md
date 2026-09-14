@@ -12,7 +12,7 @@ search:
 !!! Legacy "Legacy"
     Prior to Dyalog v13.0, `⎕PW` had a minimum value of `30`; this was increased to support 128-bit decimal values.
 
-The value of `⎕PW` in a clear workspace is defined by the [**Default_PW**](../../../windows-installation-and-configuration-guide/configuration-parameters/default-pw) configuration parameter, which is `76` on Microsoft Windows and `79` on Unix.
+The value of `⎕PW` in a clear workspace is defined by the [**Default_PW**](../../windows-installation-and-configuration-guide/configuration-parameters/default-pw.md) configuration parameter, which is `76` on Microsoft Windows and `79` on Unix.
 
 If an attempt is made to display a line wider than `⎕PW`, then the display will be folded at or before the `⎕PW` width and the folded portions indented 6 spaces.  The display of a simple numeric array may be folded at a width less than `⎕PW` so that individual numbers are not split.
 
