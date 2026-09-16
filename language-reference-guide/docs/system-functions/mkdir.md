@@ -17,13 +17,17 @@ This function creates new directories.
 1
 ```
 
+## Right Argument
+
 `Y` is a character vector or scalar containing a single directory name, or a vector of character vectors containing zero or more directory names. Names must conform to the naming rules of the host Operating System.
 
-By default, for each name in `Y` the path must exist and the base name must not exist (see [File Name Parts](nparts.md)), otherwise an error is signalled. The optional left argument `X` and the variant option `Unique` can be used to amend this behaviour.
+By default, for each name in `Y` the path must exist and the base name must not exist (see [File Name Parts](nparts.md)), otherwise an error is signalled. The optional [left argument](#left-argument) `X` and the [`Unique`](#variant-option-unique) variant option can be used to amend this behaviour.
 
-The result `R` reports what was created. Both its form and whether it is [shy](../../programming-reference-guide/introduction/results.md#shy-results) depend on the [`Unique` variant option](#variant-option-unique).
+When multiple names are specified, they are processed in the order given. If an error occurs at any point whilst creating directories, processing immediately stops and an error is signalled. The operation is not atomic; some directories might be created before this happens. In the event of an error, there is no result and therefore no indication of how many directories were created before the error occurred.
 
-The optional left argument `X` is a numeric scalar that modifies the default behaviour when the base name in `Y` already exists and/or the path in `Y` does not already exist:
+## Left Argument
+
+`X` is optional, and is a numeric scalar that modifies the default behaviour when the base name in `Y` already exists and/or the path in `Y` does not already exist:
 
 | `X` | Effect on Behaviour |
 |---|---|
@@ -34,7 +38,7 @@ The optional left argument `X` is a numeric scalar that modifies the default beh
 
 If a directory cannot be created (for example, if a directory with that name already exists, or write access is denied), then an error is signalled.
 
-<h2 class="example">Examples</h2>
+<h3 class="example">Examples</h3>
 
 ```apl
       ⎕NEXISTS '/Users/Pete/Documents/temp'
@@ -63,7 +67,9 @@ FILE NAME ERROR: /Users/Pete/Documents/temp/t1/t2: Already exists
 1 1
 ```
 
-When multiple names are specified, they are processed in the order given. If an error occurs at any point whilst creating directories, processing immediately stops and an error is signalled. The operation is not atomic; some directories might be created before this happens. In the event of an error, there is no result and therefore no indication of how many directories were created before the error occurred.
+## Result
+
+`R` reports what was created. Both its form and whether it is [shy](../../programming-reference-guide/introduction/results.md#shy-results) depend on the [`Unique`](#variant-option-unique) variant option.
 
 ## Variant Options
 
