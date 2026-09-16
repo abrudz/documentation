@@ -7,6 +7,16 @@ search:
 
 This function creates new directories.
 
+<h2 class="example">Example</h2>
+
+```apl
+      ⎕NEXISTS'reports'
+0
+      ⎕MKDIR'reports'
+      ⎕NEXISTS'reports'
+1
+```
+
 `Y` is a character vector or scalar containing a single directory name, or a vector of character vectors containing zero or more directory names. Names must conform to the naming rules of the host Operating System.
 
 By default, for each name in `Y` the path must exist and the base name must not exist (see [File Name Parts](nparts.md)), otherwise an error is signalled. The optional left argument `X` and the variant option `Unique` can be used to amend this behaviour.
@@ -25,8 +35,8 @@ The optional left argument `X` is a numeric scalar that modifies the default beh
 If a directory cannot be created (for example, if a directory with that name already exists, or write access is denied), then an error is signalled.
 
 <h2 class="example">Examples</h2>
-```apl
 
+```apl
       ⎕NEXISTS '/Users/Pete/Documents/temp'
 0
       ⎕←⎕MKDIR '/Users/Pete/Documents/temp'
