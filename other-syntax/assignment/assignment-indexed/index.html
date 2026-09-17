@@ -8,8 +8,6 @@
       
       
       
-        <link rel="canonical" href="https://abrudz.github.io/documentation/other-syntax/assignment/assignment-indexed/">
-      
       
         <link rel="prev" href="../assignment-modified/">
       
@@ -8178,6 +8176,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -10306,14 +10312,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system-functions/json/" class="md-nav__link">
+      <a href="../../../system-functions/json-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕JSON</code>: JSON Convert
+    <code>⎕JSON</code>: Import JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system-functions/json-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕JSON</code>: Export JSON
   
 
     
@@ -12098,14 +12132,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system-functions/signal/" class="md-nav__link">
+      <a href="../../../system-functions/signal-reset/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SIGNAL</code>: Signal Event
+    <code>⎕SIGNAL</code>: Reset Event Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system-functions/signal-default/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Default Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system-functions/signal-extended/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Extended Event
   
 
     
@@ -13498,14 +13588,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system-functions/xml/" class="md-nav__link">
+      <a href="../../../system-functions/xml-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕XML</code>: XML Convert
+    <code>⎕XML</code>: Import XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system-functions/xml-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕XML</code>: Export XML
   
 
     
@@ -14901,7 +15019,7 @@
 
 
 
-<h1 id="assignment-indexed-rxiy"><span>Assignment (Indexed)</span> <code>{R}←X[I]←Y</code><a href="/documentation/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
+<h1 id="assignment-indexed-rxiy"><span>Assignment (Indexed)</span> <code>{R}←X[I]←Y</code><a href="/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
 <p>Indexed Assignment is the Assignment function modified by the Indexing function.  The phrase <code>[I]←</code> is treated as the function for descriptive purposes.</p>
 <p><code>Y</code> may be any array.  <code>X</code> may be the <em>name</em> of any array or a selection from a named array <code>(EXP X)[I]←Y</code>, see <a href="../assignment-selective/">Assignment (Selective)</a>.  <code>I</code> must be a valid index specification.  The shape of <code>Y</code> must conform with the shape (implied) of the indexed structure defined by <code>I</code>.  If <code>Y</code> is a scalar or a 1-element vector it will be extended to conform.  A side effect of Indexed Assignment is to change the value of the indexed elements of <code>X</code>.</p>
 <p><code>R</code> is the value of <code>Y</code>.  If the result is not explicitly assigned or used it is <a href="../../../programming-reference-guide/introduction/results.md#shy-results">shy</a>.</p>
@@ -15149,6 +15267,8 @@ SON</code></pre>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
       
     
   </body>

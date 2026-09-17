@@ -8,8 +8,6 @@
       
       
       
-        <link rel="canonical" href="https://abrudz.github.io/documentation/system-functions/dq/">
-      
       
         <link rel="prev" href="../dmx/">
       
@@ -8085,6 +8083,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -10328,14 +10334,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../json/" class="md-nav__link">
+      <a href="../json-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕JSON</code>: JSON Convert
+    <code>⎕JSON</code>: Import JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕JSON</code>: Export JSON
   
 
     
@@ -12120,14 +12154,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../signal/" class="md-nav__link">
+      <a href="../signal-reset/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SIGNAL</code>: Signal Event
+    <code>⎕SIGNAL</code>: Reset Event Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-default/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Default Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-extended/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Extended Event
   
 
     
@@ -13520,14 +13610,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../xml/" class="md-nav__link">
+      <a href="../xml-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕XML</code>: XML Convert
+    <code>⎕XML</code>: Import XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xml-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕XML</code>: Export XML
   
 
     
@@ -14945,7 +15063,7 @@
 
 
 
-<h1 id="dequeue-events-rdq-y"><span>Dequeue Events</span> <code>{R}←⎕DQ Y</code><a href="/documentation/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
+<h1 id="dequeue-events-rdq-y"><span>Dequeue Events</span> <code>{R}←⎕DQ Y</code><a href="/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
 <p><strong>Windows only.</strong></p>
 <p><code>⎕DQ</code> awaits and processes events.  <code>Y</code> specifies the GUI objects(s) for which events are to be processed.  Objects are identified by their names, as character scalars/vectors, or by namespace references. These may be objects of type Root, Form, Locator, FileBox, MsgBox, PropertySheet, TCPSocket, Timer, Clipboard and pop-up Menu. Sub-objects (children) of those named in <code>Y</code> are also included.  However, any objects which exist, but are not named in <code>Y</code>, are effectively disabled (do not respond to the user).</p>
 <p>If <code>Y</code> is <code>#</code>, <code>'#'</code>, or <code>'.'</code>, all objects currently owned and subsequently created by the current thread are included in the <code>⎕DQ</code>. Because the Root object is owned by thread 0, events on Root are reported only to thread 0.</p>
@@ -15081,6 +15199,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -8,8 +8,6 @@
       
       
       
-        <link rel="canonical" href="https://abrudz.github.io/documentation/system-functions/mkdir/">
-      
       
         <link rel="prev" href="../map/">
       
@@ -8085,6 +8083,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -10213,14 +10219,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../json/" class="md-nav__link">
+      <a href="../json-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕JSON</code>: JSON Convert
+    <code>⎕JSON</code>: Import JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕JSON</code>: Export JSON
   
 
     
@@ -10469,6 +10503,39 @@
       On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#right-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right Argument
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left Argument
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#variant-options" class="md-nav__link">
@@ -12082,14 +12149,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../signal/" class="md-nav__link">
+      <a href="../signal-reset/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SIGNAL</code>: Signal Event
+    <code>⎕SIGNAL</code>: Reset Event Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-default/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Default Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-extended/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Extended Event
   
 
     
@@ -13482,14 +13605,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../xml/" class="md-nav__link">
+      <a href="../xml-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕XML</code>: XML Convert
+    <code>⎕XML</code>: Import XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xml-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕XML</code>: Export XML
   
 
     
@@ -14759,6 +14910,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#right-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right Argument
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left Argument
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#variant-options" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14869,12 +15053,21 @@
 
 
 
-<h1 id="create-directory-rxmkdir-y"><span>Create Directory</span> <code>{R}←{X}⎕MKDIR Y</code><a href="/documentation/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
+<h1 id="create-directory-rxmkdir-y"><span>Create Directory</span> <code>{R}←{X}⎕MKDIR Y</code><a href="/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
 <p>This function creates new directories.</p>
+<h2 class="example">Example</h2>
+
+<pre class="highlight"><code class="language-apl">      ⎕NEXISTS'reports'
+0
+      ⎕MKDIR'reports'
+      ⎕NEXISTS'reports'
+1</code></pre>
+<h2 id="right-argument">Right Argument</h2>
 <p><code>Y</code> is a character vector or scalar containing a single directory name, or a vector of character vectors containing zero or more directory names. Names must conform to the naming rules of the host Operating System.</p>
-<p>By default, for each name in <code>Y</code> the path must exist and the base name must not exist (see <a href="../nparts/">File Name Parts</a>), otherwise an error is signalled. The optional left argument <code>X</code> and the variant option <code>Unique</code> can be used to amend this behaviour.</p>
-<p>The result <code>R</code> reports what was created. Both its form and whether it is <a href="../../programming-reference-guide/introduction/results.md#shy-results">shy</a> depend on the <a href="#variant-option-unique"><code>Unique</code> variant option</a>.</p>
-<p>The optional left argument <code>X</code> is a numeric scalar that modifies the default behaviour when the base name in <code>Y</code> already exists and/or the path in <code>Y</code> does not already exist:</p>
+<p>By default, for each name in <code>Y</code> the path must exist and the base name must not exist (see <a href="../nparts/">File Name Parts</a>), otherwise an error is signalled. The optional <a href="#left-argument">left argument</a> <code>X</code> and the <a href="#variant-option-unique"><code>Unique</code></a> variant option can be used to amend this behaviour.</p>
+<p>When multiple names are specified, they are processed in the order given. If an error occurs at any point whilst creating directories, processing immediately stops and an error is signalled. The operation is not atomic; some directories might be created before this happens. In the event of an error, there is no result and therefore no indication of how many directories were created before the error occurred.</p>
+<h2 id="left-argument">Left Argument</h2>
+<p><code>X</code> is optional, and is a numeric scalar that modifies the default behaviour when the base name in <code>Y</code> already exists and/or the path in <code>Y</code> does not already exist:</p>
 <table>
 <thead>
 <tr>
@@ -14902,9 +15095,9 @@
 </tbody>
 </table>
 <p>If a directory cannot be created (for example, if a directory with that name already exists, or write access is denied), then an error is signalled.</p>
-<h2 class="example">Examples</h2>
-<pre class="highlight"><code class="language-apl">
-      ⎕NEXISTS '/Users/Pete/Documents/temp'
+<h3 class="example">Examples</h3>
+
+<pre class="highlight"><code class="language-apl">      ⎕NEXISTS '/Users/Pete/Documents/temp'
 0
       ⎕←⎕MKDIR '/Users/Pete/Documents/temp'
 1
@@ -14928,7 +15121,8 @@ FILE NAME ERROR: /Users/Pete/Documents/temp/t1/t2: Already exists
 
       ⎕←⎕MKDIR'temp1' 'temp2'
 1 1</code></pre>
-<p>When multiple names are specified, they are processed in the order given. If an error occurs at any point whilst creating directories, processing immediately stops and an error is signalled. The operation is not atomic; some directories might be created before this happens. In the event of an error, there is no result and therefore no indication of how many directories were created before the error occurred.</p>
+<h2 id="result">Result</h2>
+<p><code>R</code> reports what was created. Both its form and whether it is <a href="../../programming-reference-guide/introduction/results.md#shy-results">shy</a> depend on the <a href="#variant-option-unique"><code>Unique</code></a> variant option.</p>
 <h2 id="variant-options">Variant Options</h2>
 <p><code>⎕MKDIR</code> supports one variant option, <code>Unique</code>. There is no principal option.</p>
 <h3 id="variant-option-unique">Variant Option: <code>Unique</code></h3>
@@ -15061,6 +15255,8 @@ FILE NAME ERROR: /Users/Pete/Documents/temp/t1/t2: Already exists
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
       
     
   </body>

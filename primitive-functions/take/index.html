@@ -8,8 +8,6 @@
       
       
       
-        <link rel="canonical" href="https://abrudz.github.io/documentation/primitive-functions/take/">
-      
       
         <link rel="prev" href="../table/">
       
@@ -8087,6 +8085,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -10215,14 +10221,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system-functions/json/" class="md-nav__link">
+      <a href="../../system-functions/json-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕JSON</code>: JSON Convert
+    <code>⎕JSON</code>: Import JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/json-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕JSON</code>: Export JSON
   
 
     
@@ -12007,14 +12041,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system-functions/signal/" class="md-nav__link">
+      <a href="../../system-functions/signal-reset/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SIGNAL</code>: Signal Event
+    <code>⎕SIGNAL</code>: Reset Event Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/signal-default/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Default Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/signal-extended/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Extended Event
   
 
     
@@ -13407,14 +13497,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system-functions/xml/" class="md-nav__link">
+      <a href="../../system-functions/xml-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕XML</code>: XML Convert
+    <code>⎕XML</code>: Import XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/xml-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕XML</code>: Export XML
   
 
     
@@ -14776,7 +14894,7 @@
 
 
 
-<h1 id="take-rxy"><span>Take</span> <code>R←X↑Y</code><a href="/documentation/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
+<h1 id="take-rxy"><span>Take</span> <code>R←X↑Y</code><a href="/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
 <p><code>Y</code> may be any array.  <code>X</code> must be a simple integer scalar or vector.</p>
 <p>If <code>Y</code> is a scalar, it is treated as a one-element array of shape <code>(⍴,X)⍴1</code>.  The length of <code>X</code> must be the same as or less than the rank of <code>Y</code>. If the length of <code>X</code> is less than the rank of <code>Y</code>, the missing elements of <code>X</code> default to the length of the corresponding axis of <code>Y</code>.</p>
 <p><code>R</code> is an array of the same rank as <code>Y</code> (after possible extension), and of shape <code>|X</code>.  If <code>X[I]</code> (an element of <code>X</code>) is positive, then <code>X[I]</code> sub-arrays are taken from the beginning of the <code>I</code><sup>th</sup> axis of <code>Y</code>.  If <code>X[I]</code> is negative, then <code>X[I]</code> sub-arrays are taken from the end of the <code>I</code><sup>th</sup> axis of <code>Y</code>.</p>
@@ -14913,6 +15031,8 @@ UVWX</code></pre>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
       
     
   </body>

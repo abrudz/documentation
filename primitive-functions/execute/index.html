@@ -8,8 +8,6 @@
       
       
       
-        <link rel="canonical" href="https://abrudz.github.io/documentation/primitive-functions/execute/">
-      
       
         <link rel="prev" href="../equal-to/">
       
@@ -8095,6 +8093,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -10223,14 +10229,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system-functions/json/" class="md-nav__link">
+      <a href="../../system-functions/json-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕JSON</code>: JSON Convert
+    <code>⎕JSON</code>: Import JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/json-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕JSON</code>: Export JSON
   
 
     
@@ -12015,14 +12049,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system-functions/signal/" class="md-nav__link">
+      <a href="../../system-functions/signal-reset/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SIGNAL</code>: Signal Event
+    <code>⎕SIGNAL</code>: Reset Event Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/signal-default/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Default Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/signal-extended/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕SIGNAL</code>: Signal Extended Event
   
 
     
@@ -13415,14 +13505,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system-functions/xml/" class="md-nav__link">
+      <a href="../../system-functions/xml-import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕XML</code>: XML Convert
+    <code>⎕XML</code>: Import XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-functions/xml-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕XML</code>: Export XML
   
 
     
@@ -14766,13 +14884,13 @@
 
 
 
-<h1 id="execute-ry"><span>Execute</span> <code>R←⍎Y</code><a href="/documentation/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
+<h1 id="execute-ry"><span>Execute</span> <code>R←⍎Y</code><a href="/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If the argument to <em>execute</em> could include user input, then there is a risk to data and systems. To reduce this risk, a system function might be more appropriate than the <em>execute</em> function. For example:</p>
 <ul>
 <li>use <a href="../../system-functions/vget/"><code>⎕VGET</code></a> or <a href="../../system-functions/vset/"><code>⎕VSET</code></a> to get or set the value of one or more variables named within one or more character vectors.</li>
-<li>use <a href="../../system-functions/vfi/"><code>⎕VFI</code></a>, <a href="../../system-functions/json/"><code>⎕JSON</code></a>, or <a href="../../system-functions/csv/"><code>⎕CSV</code></a> to make numbers in text form into actual numbers.</li>
+<li>use <a href="../../system-functions/vfi/"><code>⎕VFI</code></a>, <a href="../../system-functions/json-import/"><code>⎕JSON</code></a>, or <a href="../../system-functions/csv/"><code>⎕CSV</code></a> to make numbers in text form into actual numbers.</li>
 <li>use <a href="../../system-functions/or/"><code>⎕OR</code></a> to call a function by name; exact usage depends on valency. For example:</li>
 <li>niladic – <code>(⎕OR fnName){⍺⍺}</code></li>
 <li>monadic – <code>(⎕OR fnName){⍺⍺ ⍵}YY</code></li>
@@ -14905,6 +15023,8 @@ VALUE ERROR: No result was provided when the context expected one
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
       
     
   </body>
