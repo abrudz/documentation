@@ -14852,12 +14852,12 @@
 <h1 id="signal-event-signal"><span>Signal Event</span> <code>⎕SIGNAL</code></h1>
 <p><code>⎕SIGNAL</code> generates an event under program control, or clears the information left behind by the most recent event.</p>
 <p>The first element of the right argument chooses which action <code>⎕SIGNAL</code> performs (an empty right argument does nothing).</p>
-<h2 id="reset-event-constants"><a href="../signal-reset/">Reset Event Constants</a></h2>
-<p><code>0</code> resets the system constants describing the most recent event, without generating one:</p>
+<h2 id="reset-event-constants">Reset Event Constants</h2>
+<p><a href="../signal-reset/"><code>⎕SIGNAL 0</code></a> resets the system constants describing the most recent event, without generating one:</p>
 <pre class="highlight"><code class="language-apl">      ⎕←⎕SIGNAL 0
 0</code></pre>
-<h2 id="signal-default-event"><a href="../signal-default/">Signal Default Event</a></h2>
-<p>An event number generates that event with its standard event message, which an optional left argument can replace:</p>
+<h2 id="signal-default-event">Signal Default Event</h2>
+<p><a href="../signal-default/">An event number</a> generates that event with its standard event message, which an optional left argument can replace:</p>
 <pre class="highlight"><code class="language-apl">      ⎕SIGNAL 200
 ERROR 200
       ⎕SIGNAL 200
@@ -14867,8 +14867,8 @@ ERROR 200
 Hello
       'Hello'⎕SIGNAL 200
              ∧</code></pre>
-<h2 id="signal-extended-event"><a href="../signal-extended/">Signal Extended Event</a></h2>
-<p>A set of name/value pairs generates an event with chosen values for the members of <a href="../dmx/"><code>⎕DMX</code></a>:</p>
+<h2 id="signal-extended-event">Signal Extended Event</h2>
+<p><a href="../signal-extended/">A set of name/value pairs</a> generates an event with chosen values for the members of <a href="../dmx/"><code>⎕DMX</code></a>:</p>
 <pre class="highlight"><code class="language-apl">      ⎕SIGNAL⊂('EN' 200)('Message' 'My error')
 ERROR 200: My error
       ⎕SIGNAL⊂('EN' 200)('Message' 'My error')

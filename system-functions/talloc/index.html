@@ -14862,24 +14862,24 @@
 
 <h1 id="token-allocation-talloc"><span>Token Allocation</span> <code>⎕TALLOC</code></h1>
 <p>A <em>token range</em> reserves a set of token types for one purpose, so that unrelated parts of an application can use <a href="../tput/"><code>⎕TPUT</code></a> and <a href="../tget/"><code>⎕TGET</code></a> without choosing the same types by accident. The first element of the right argument chooses which action <code>⎕TALLOC</code> performs on such ranges.</p>
-<h2 id="allocate-token-range"><a href="../talloc-allocate/">Allocate Token Range</a></h2>
-<p><code>⎕TALLOC 1</code> reserves a range and returns the number identifying it, optionally recording a description:</p>
+<h2 id="allocate-token-range">Allocate Token Range</h2>
+<p><a href="../talloc-allocate/"><code>⎕TALLOC 1</code></a> reserves a range and returns the number identifying it, optionally recording a description:</p>
 <pre class="highlight"><code class="language-apl">      ⎕←trg←⎕TALLOC 1 'cats'
 1</code></pre>
-<h2 id="de-allocate-token-range"><a href="../talloc-deallocate/">De-allocate Token Range</a></h2>
-<p><code>⎕TALLOC ¯1</code> releases the range identified by the left argument, making it free for re-allocation:</p>
+<h2 id="de-allocate-token-range">De-allocate Token Range</h2>
+<p><a href="../talloc-deallocate/"><code>⎕TALLOC ¯1</code></a> releases the range identified by the left argument, making it free for re-allocation:</p>
 <pre class="highlight"><code class="language-apl">      ⎕←trg ⎕TALLOC ¯1
 1</code></pre>
-<h2 id="query-allocated-token-ranges"><a href="../talloc-ranges/">Query Allocated Token Ranges</a></h2>
-<p><code>⎕TALLOC 0</code> reports the ranges currently allocated and their descriptions, or the description of the one range identified by the left argument:</p>
+<h2 id="query-allocated-token-ranges">Query Allocated Token Ranges</h2>
+<p><a href="../talloc-ranges/"><code>⎕TALLOC 0</code></a> reports the ranges currently allocated and their descriptions, or the description of the one range identified by the left argument:</p>
 <pre class="highlight"><code class="language-apl">      ⎕TALLOC 0
 ┌────────┐
 │┌─┬────┐│
 ││1│cats││
 │└─┴────┘│
 └────────┘</code></pre>
-<h2 id="query-pooled-tokens-in-range"><a href="../talloc-pool/">Query Pooled Tokens in Range</a></h2>
-<p><code>⎕TALLOC 2</code> reports the tokens in the token pool that fall within the range identified by the left argument:</p>
+<h2 id="query-pooled-tokens-in-range">Query Pooled Tokens in Range</h2>
+<p><a href="../talloc-pool/"><code>⎕TALLOC 2</code></a> reports the tokens in the token pool that fall within the range identified by the left argument:</p>
 <pre class="highlight"><code class="language-apl">      trg ⎕TALLOC 2
 1.5</code></pre>
 

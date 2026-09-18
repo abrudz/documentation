@@ -14844,16 +14844,16 @@
 <p class="admonition-title">Legacy</p>
 <p><code>⎕AT</code> reports a fixed set of attributes, and only for defined functions and operators. <a href="../atx/"><code>⎕ATX</code></a> reports those and many more, selects exactly the ones wanted, and applies to other kinds of name as well.</p>
 </div>
-<h2 id="object-attributes-for-dyalog"><a href="../at-monadic/">Object Attributes for Dyalog</a></h2>
-<p>Monadic <code>⎕AT</code> reports the valences, fix time, lock state, and author of each name at once:</p>
+<h2 id="object-attributes-for-dyalog">Object Attributes for Dyalog</h2>
+<p><a href="../at-monadic/">Monadic <code>⎕AT</code></a> reports the valences, fix time, lock state, and author of each name at once:</p>
 <pre class="highlight"><code class="language-apl">      ∇ R←X plus Y
 [1]     R←X+Y
 [2]   ∇
       ⎕AT 'plus'
  1 2 0  2026 9 9 7 42 30 0  0  pete 
 </code></pre>
-<h2 id="object-attributes-for-apl2"><a href="../at-dyadic/">Object Attributes for APL2</a></h2>
-<p>Dyadic <code>⎕AT</code> reports one group of attributes, chosen by <code>X</code>, in the form that APL2 uses:</p>
+<h2 id="object-attributes-for-apl2">Object Attributes for APL2</h2>
+<p><a href="../at-dyadic/">Dyadic <code>⎕AT</code></a> reports one group of attributes, chosen by the left argument, in the form that APL2 uses:</p>
 <pre class="highlight"><code class="language-apl">      ∇ R←X plus Y
 [1]     R←X+Y
 [2]   ∇

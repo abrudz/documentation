@@ -14956,8 +14956,8 @@
 
 <h1 id="xml-convert-xml"><span>XML Convert</span> <code>⎕XML</code></h1>
 <p><code>⎕XML</code> converts between XML text and APL arrays. It imports when the right argument is a simple character vector, and exports when it is a matrix.</p>
-<h2 id="import-xml"><a href="../xml-import/">Import XML</a></h2>
-<p>A character vector holding XML is converted to a five-column matrix describing it:</p>
+<h2 id="import-xml">Import XML</h2>
+<p><a href="../xml-import/"><code>⎕XML</code> on a character vector</a> converts the XML it holds to a five-column matrix describing it:</p>
 <pre class="highlight"><code class="language-apl">      v←⎕XML'&lt;xml&gt;&lt;t a="s"&gt;c&lt;/t&gt;&lt;/xml&gt;'
       v
 ┌─┬───┬─┬─────┬─┐
@@ -14967,8 +14967,8 @@
 │ │   │ ││a│s││ │
 │ │   │ │└─┴─┘│ │
 └─┴───┴─┴─────┴─┘</code></pre>
-<h2 id="export-xml"><a href="../xml-export/">Export XML</a></h2>
-<p>Such a matrix is converted back to XML text:</p>
+<h2 id="export-xml">Export XML</h2>
+<p><a href="../xml-export/"><code>⎕XML</code> on such a matrix</a> converts it back to XML text:</p>
 <pre class="highlight"><code class="language-apl">      ⎕XML v
 &lt;xml&gt;
   &lt;t a="s"&gt;c&lt;/t&gt;

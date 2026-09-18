@@ -14840,14 +14840,14 @@
 
 <h1 id="quad"><span>Quad</span> <code>⎕</code></h1>
 <p><code>⎕</code> communicates between an APL expression and the Session or terminal. Referencing it reads a value from there; assigning to it displays a value there.</p>
-<h2 id="evaluated-input"><a href="../quad-input/">Evaluated Input</a></h2>
-<p>Referencing <code>⎕</code> prompts for an expression, evaluates it, and returns the result:</p>
+<h2 id="evaluated-input">Evaluated Input</h2>
+<p><a href="../quad-input/"><code>R←⎕</code></a> prompts for an expression, evaluates it, and returns the result:</p>
 <pre class="highlight"><code class="language-apl">      10×⎕+2
 ⎕:
       ⍳3
 30 40 50</code></pre>
-<h2 id="standard-output"><a href="../quad-output/">Standard Output</a></h2>
-<p>Assigning to <code>⎕</code> displays the array in the same form as implicit output, on standard output:</p>
+<h2 id="standard-output">Standard Output</h2>
+<p><a href="../quad-output/"><code>⎕←Y</code></a> displays the array in the same form as implicit output, on standard output:</p>
 <pre class="highlight"><code class="language-apl">      ⎕←2 4⍴'WINEMART'
 WINE
 MART</code></pre>
