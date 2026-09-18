@@ -15240,11 +15240,7 @@
 <h2 id="right-argument">Right Argument</h2>
 <p><code>Y</code> is a simple character scalar, vector, or matrix containing a JSON document. There is an implied newline character between each row of a matrix.</p>
 <h2 id="left-argument">Left Argument</h2>
-<p>The left argument <code>0</code> can be omitted when <code>Y</code> is a simple character array, which is what identifies the call as an import.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Dyalog Ltd strongly recommends that the left argument should always be specified to avoid code that seemingly works, only to fail on specific values.</p>
-</div>
+<p>The left argument <code>0</code> can be omitted when <code>Y</code> is a simple character array, which is what identifies the call as an import, but Dyalog Ltd recommends specifying the left argument to avoid code that seemingly works, only to fail on specific values.</p>
 <h2 id="result">Result</h2>
 <p><code>R</code> is the APL data corresponding to <code>Y</code>. Its form depends on the <a href="#variant-option-format"><code>Format</code></a> variant option: <code>'D'</code> gives a direct APL representation, <code>'M'</code> a four-column matrix encoding the JSON structure.</p>
 <p>The <a href="https://www.rfc-editor.org/info/rfc8259/#section-4">JSON standard</a> states that members of a JSON object should have unique names and that implementations vary in how they treat duplicates. Dyalog does not error on duplicates, but their handling depends on the <code>Format</code> variant option.</p>

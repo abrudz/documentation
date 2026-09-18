@@ -15407,11 +15407,7 @@
 <p><code>Y</code> is the data to be exported. By default, <code>Y</code> must be APL data that can be represented as JSON (subject to the <a href="#variant-option-highrank"><code>HighRank</code></a> variant option). If the <a href="#variant-option-format"><code>Format</code></a> variant option is set to <code>'M'</code>, <code>Y</code> must instead be a matrix representation such as would have been produced by importing JSON with <code>Format</code> being <code>'M'</code>. <code>⎕JSON</code> signals <code>DOMAIN ERROR</code> if <code>Y</code> is incompatible with the specified (or implied) value of <code>Format</code>.</p>
 <p><code>Y</code> can contain <a href="#wrappers">wrappers</a> that give special handling to arrays JSON cannot represent directly.</p>
 <h2 id="left-argument">Left Argument</h2>
-<p>The left argument <code>1</code> can be omitted when <code>Y</code> is not a simple character array, which is what identifies the call as an export.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Dyalog Ltd strongly recommends that the left argument should always be specified to avoid code that seemingly works, only to fail on specific values.</p>
-</div>
+<p>The left argument <code>1</code> can be omitted when <code>Y</code> is not a simple character array, which is what identifies the call as an export, but Dyalog Ltd recommends specifying the left argument to avoid code that seemingly works, only to fail on specific values.</p>
 <h2 id="result">Result</h2>
 <p><code>R</code> is a simple character vector containing the JSON document corresponding to <code>Y</code>. Its content depends on the <a href="#variant-option-compact"><code>Compact</code></a>, <a href="#variant-option-dialect"><code>Dialect</code></a>, and <a href="#variant-option-charset"><code>Charset</code></a> variant options.</p>
 <p><code>⎕JSON</code> output is not affected by <a href="../pp/"><code>⎕PP</code></a>; numbers are always represented with full precision.</p>

@@ -14839,11 +14839,8 @@
 
 
 <h1 id="object-attributes-at"><span>Object Attributes</span> <code>⎕AT</code></h1>
-<p><code>⎕AT</code> reports attributes of the defined functions and operators named in <code>Y</code>, such as their valences and the time they were last fixed.</p>
-<div class="admonition legacy">
-<p class="admonition-title">Legacy</p>
-<p><code>⎕AT</code> reports a fixed set of attributes, and only for defined functions and operators. <a href="../atx/"><code>⎕ATX</code></a> reports those and many more, selects exactly the ones wanted, and applies to other kinds of name as well.</p>
-</div>
+<p><code>⎕AT</code> reports attributes of the defined functions and operators named in the right argument, such as their valences and the time they were last fixed.</p>
+<p>A newer system function, <a href="../atx/"><code>⎕ATX</code></a>, can be used instead: it is a superset of <code>⎕AT</code> that reports many more attributes, lets you choose which of them to report, and applies to any name, not only defined functions and operators.</p>
 <h2 id="object-attributes-for-dyalog">Object Attributes for Dyalog</h2>
 <p><a href="../at-monadic/">Monadic <code>⎕AT</code></a> reports the valences, fix time, lock state, and author of each name at once:</p>
 <pre class="highlight"><code class="language-apl">      ∇ R←X plus Y

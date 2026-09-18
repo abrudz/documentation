@@ -15099,10 +15099,7 @@
 
 <h1 id="object-attributes-for-apl2-rx-at-y"><span>Object Attributes for APL2</span> <code>R←X ⎕AT Y</code><a href="/key-to-notation"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="32" viewbox="-4 0 16 24" width="32"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></a></h1>
 <p>This function closely emulates the APL2 implementation; the <a href="../at-monadic/">monadic form</a> returns information more appropriate to Dyalog APL instead.</p>
-<div class="admonition legacy">
-<p class="admonition-title">Legacy</p>
-<p><code>⎕AT</code> reports a fixed set of attributes, and only for defined functions and operators. <a href="../atx/"><code>⎕ATX</code></a> reports those and many more, selects exactly the ones wanted, and applies to other kinds of name as well.</p>
-</div>
+<p>A newer system function, <a href="../atx/"><code>⎕ATX</code></a>, can be used instead: it is a superset of <code>⎕AT</code> that reports many more attributes, lets you choose which of them to report, and applies to any name, not only defined functions and operators.</p>
 <h2 id="left-argument">Left Argument</h2>
 <p><code>X</code> can be <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>, and selects which group of attributes <code>R</code> reports: <a href="#valences">valences</a>, <a href="#fix-time">fix time</a>, <a href="#execution-properties">execution properties</a>, or <a href="#object-size">object size</a>.</p>
 <h2 id="right-argument">Right Argument</h2>
