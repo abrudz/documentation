@@ -5,15 +5,7 @@ search:
 
 # <span>Call Windows Command Processor</span> `{R}←⎕CMD Y`{{key}}
 
-This function passes a command to the Microsoft Windows Command Processor and returns its output, or starts a Windows program. To start an auxiliary processor instead, see [Start Windows Auxiliary Processor](cmd-dyadic.md). For the behaviour of `⎕CMD` and its synonym [`⎕SH`](sh.md) on Unix, see [Call Unix Command Processor](sh-monadic.md).
-
-The system commands [`)SH`](../system-commands/sh.md) and [`)CMD`](../system-commands/cmd.md) provide similar facilities.
-
-See also [`⎕SHELL`](shell.md).
-
-## Executing the Windows Command Processor
-
-If `Y` is a simple character vector, `⎕CMD` invokes the Windows Command Processor (normally `cmd.exe`) and passes the command specified by character vector `Y` to it for execution. The term command means here an instruction recognised by the Command Processor, or the pathname of a program (with optional parameters) to be executed by it. In either case, APL waits for the command to finish and then returns the result `R`,  a vector of character vectors containing its result. Each element in `R` corresponds to a line of output produced by the command.
+This function passes a command to the Microsoft Windows Command Processor and returns its output, or starts a Windows program. To start an auxiliary processor instead, see [Start Windows Auxiliary Processor](cmd-dyadic.md).
 
 <h2 class="example">Example</h2>
 
@@ -37,14 +29,30 @@ If `Y` is a simple character vector, `⎕CMD` invokes the Windows Command Proces
 
 ```
 
+The system command [`)CMD`](../system-commands/cmd.md) provides a similar facility. A newer system function, [`⎕SHELL`](shell.md), can be used instead: it runs a program directly as well as through a shell, collects standard output and standard error separately, supplies input, sets the working directory and environment, imposes a timeout, and reports how the program ended rather than signalling an error.
+
+## Right Argument
+
+`Y` is either a simple character vector containing a command, which is [executed by the Command Processor](#executing-a-command), or a 2-element vector of character vectors, which [starts a program](#starting-a-program) directly.
+
+## Result
+
+Where `Y` is a command, `⎕CMD` waits for it to finish and `R` is a vector of character vectors, each element a line of the output it produced.
+
+Where `Y` starts a program, `⎕CMD` returns immediately and the [shy](../../programming-reference-guide/introduction/results.md#shy-results) result `R` is an integer scalar holding the process identifier (PID).
+
+## Executing a Command
+
+The term command means an instruction recognised by the Command Processor, or the pathname of a program, with optional parameters, to be executed by it. `⎕CMD` invokes the Command Processor, normally `cmd.exe`, and passes the command to it.
+
 If the command specified in `Y` already contains the redirection symbol (`>`) the capture of output through a pipe is avoided and the result `R` is empty.  If the command specified by `Y` issues prompts and expects user input, it is **ESSENTIAL** to explicitly redirect input and output to the console.
 
 If this is done, APL detects the presence of a "`>`" in the command line, runs the command processor in a **visible** window, and does not direct output to the pipe.  If you fail to do this your system will appear to hang because there is no mechanism for you to receive or respond to the prompt.
 
-<h2 class="example">Example</h2>
+<h3 class="example">Example</h3>
 
 ```apl
-      ⎕CMD 'DATE <CON >CON'
+      ⎕CMD 'DATE <CON >CON'
 ```
 
 (Command Prompt window appears)
@@ -55,7 +63,7 @@ If this is done, APL detects the presence of a "`>`" in the command line, runs t
 
 (COMMAND PROMPT window disappears)
 
-### Spaces in pathnames
+### Spaces in Pathnames
 
 If `Y` specifies a program (with or without parameters) and the pathname to the program  contains spaces, you must enclose the string in double-quotes.
 
@@ -117,9 +125,9 @@ If you simply wish to open a Command Prompt window, you may execute the command 
       ⎕CMD 'cmd.exe' ''
 ```
 
-## Starting a Windows Program
+## Starting a Program
 
-If `Y` is a 2-element vector of character vectors, `⎕CMD` starts the executable program named by `Y[1]` with the initial window parameter specified by `Y[2]`. The [shy](../../programming-reference-guide/introduction/results.md#shy-results) result is an integer scalar containing the window handle allocated by the window manager. In this case, Dyalog does not wait for the program specified by `Y` to finish, but returns immediately. The shy result `R` is the process identifier (PID).
+Where `Y` is a 2-element vector of character vectors, `⎕CMD` starts the executable program named by `Y[1]` with the initial window parameter given by `Y[2]`, without going through the Command Processor.
 
 `Y[1]` must specify the name or complete pathname of an executable program.  If the name alone is specified, Windows will search the following directories:
 
@@ -130,17 +138,17 @@ If `Y` is a 2-element vector of character vectors, `⎕CMD` starts the executabl
 5. the list of directories mapped in a network.
 
 `Y[1]` can contain the complete command line, including any suitable parameters for starting the program.  If Windows fails to find the executable program, `⎕CMD` will fail and report `FILE ERROR 2`.
+`Y[2]` must be one of the following, otherwise `⎕CMD` signals `DOMAIN ERROR`:
 
-`Y[2]` specifies the window parameter and may be one of the following.  If not, a `DOMAIN ERROR` is reported.
+|`Y[2]`|Effect|
+|---|---|
+|`'Normal'`, `''`|Application is started in a normal window, which is given the input focus|
+|`'Unfocused'`|Application is started in a normal window, which is not given the input focus|
+|`'Hidden'`|Application is run in an invisible window|
+|`'Minimized'`, `'Minimised'`|Application is started as an icon, which is not given the input focus|
+|`'Maximized'`, `'Maximised'`|Application is started maximised (full screen) and is given the input focus|
 
-|------------------------|-----------------------------------------------------------------------------|
-|`'Normal'''`            |Application is started in a normal window, which is given the input focus    |
-|`'Unfocused'`           |Application is started in a normal window, which is NOT given the input focus|
-|`'Hidden'`              |Application is run in an invisible window                                    |
-|`'Minimized''Minimised'`|Application is started as an icon which is NOT given the input focus         |
-|`'Maximized''Maximised'`|Application is started maximized (full screen) and is given the input focus  |
-
-There is no way to terminate an application started by `⎕CMD` from APL; it will run until it completes or is terminated by an external mechanism. Furthermore, if the window parameter is HIDDEN, the user is unaware of the application (unless it makes itself visible) and has no means to close it.
+There is no way to terminate an application started by `⎕CMD` from APL; it runs until it completes or is terminated by an external mechanism. Furthermore, if the window parameter is `'Hidden'`, the user is unaware of the application, unless it makes itself visible, and has no means to close it.
 
 <h3 class="example">Examples</h3>
 
@@ -151,7 +159,7 @@ There is no way to terminate an application started by `⎕CMD` from APL; it wil
       ⎕CMD (Path,'winword /mMyMacro') 'Minimized'
 ```
 
-### Executing Programs
+## Which Form to Use
 
 Either form of `⎕CMD` may be used to execute a program. The difference is that when the program is executed via the Command Processor, APL waits for it to complete and returns any result that the program would have displayed in the Command Window had it been executed from a Command Window. In the second case, APL starts the program (in parallel).
 

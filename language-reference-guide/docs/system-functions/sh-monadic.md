@@ -5,28 +5,39 @@ search:
 
 # <span>Call Unix Command Processor</span> `{R}←⎕SH Y`{{key}}
 
-This function passes a command to the Unix shell and returns its output. To start an auxiliary processor instead, see [Start Unix Auxiliary Processor](sh-dyadic.md). For the behaviour of `⎕SH` and its synonym [`⎕CMD`](cmd.md) on Microsoft Windows, see [Call Windows Command Processor](cmd-monadic.md).
+This function passes a command to the Unix shell and returns its output. To start an auxiliary processor instead, see [Start Unix Auxiliary Processor](sh-dyadic.md).
 
-The system commands [`)SH`](../system-commands/sh.md) and [`)CMD`](../system-commands/cmd.md) provide similar facilities.
+<h2 class="example">Example</h2>
 
-`Y` must be a simple character scalar or vector representing a UNIX shell command.  `R` is a nested vector of character vectors.
+```apl
+      z←⎕SH'ls'
+      z
+┌─────┬────┬──┐
+│FILES│temp│WS│
+└─────┴────┴──┘
+```
 
-`Y` may be any acceptable UNIX command. If the command does not produce any output, `R` is `0⍴⊂''` but the result is [shy](../../programming-reference-guide/introduction/results.md#shy-results).  If the command has a non-zero exit code, then APL will signal a `DOMAIN ERROR`.  If the command returns a result and has a zero exit code, then each element of `R` will be a line from the standard output (stdout) of the command.  Output from standard error (stderr) is not captured unless redirected to stdout.
+The system command [`)SH`](../system-commands/sh.md) provides a similar facility. A newer system function, [`⎕SHELL`](shell.md), can be used instead: it runs a program directly as well as through a shell, collects standard output and standard error separately, supplies input, sets the working directory and environment, imposes a timeout, and reports how the program ended rather than signalling `DOMAIN ERROR`.
 
-See also [`⎕SHELL`](shell.md).
+## Right Argument
+
+`Y` is a simple character scalar or vector containing a Unix shell command.
+
+## Result
+
+`R` is a vector of character vectors, each element a line of the command's standard output. Output to standard error is not captured unless redirected to standard output.
+
+If the command produces no output, `R` is `0⍴⊂''` and is [shy](../../programming-reference-guide/introduction/results.md#shy-results). If the command has a non-zero exit code, `⎕SH` signals `DOMAIN ERROR`.
 
 <h2 class="example">Examples</h2>
 
 ```apl
-      ⎕SH'ls'
-FILES WS temp
- 
-      ⎕SH 'rm WS/TEST'
- 
-      ⎕SH 'grep bin /etc/passwd ; exit 0'
+      ⎕SH 'rm WS/TEST'
+
+      ⎕SH 'grep bin /etc/passwd ; exit 0'
 bin:!:2:2::/bin:
- 
-      ⎕SH 'apl MYWS <inputfile >out1 2>out2 &'
+
+      ⎕SH 'apl MYWS <inputfile >out1 2>out2 &'
 ```
 
 !!! Info "Information"
