@@ -7,7 +7,7 @@ search:
 
 `⎕CMD` passes a command to the Microsoft Windows Command Processor, starts a Windows program, or starts an auxiliary processor. The presence of a left argument chooses between the last of these and the other two.
 
-`⎕CMD` and [`⎕SH`](sh.md) are synonyms: either name can be used on either platform, with exactly the same effect. What differs is the platform, not the name, so these pages describe Microsoft Windows and the [`⎕SH`](sh.md) pages describe Unix. `⎕CMD` is the more natural name for the Windows user.
+`⎕CMD` is a synonym of [`⎕SH`](sh.md), which documents the same actions on Unix. Either name can be used on either platform, with the behaviour of the platform it runs on.
 
 ## Call Windows Command Processor
 

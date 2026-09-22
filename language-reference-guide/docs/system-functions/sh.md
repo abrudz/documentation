@@ -7,7 +7,7 @@ search:
 
 `⎕SH` passes a command to the Unix shell, or starts an auxiliary processor. The presence of a left argument chooses which.
 
-`⎕SH` and [`⎕CMD`](cmd.md) are synonyms: either name can be used on either platform, with exactly the same effect. What differs is the platform, not the name, so these pages describe Unix and the [`⎕CMD`](cmd.md) pages describe Microsoft Windows. `⎕SH` is the more natural name for the Unix user.
+`⎕SH` is a synonym of [`⎕CMD`](cmd.md), which documents the same two actions on Microsoft Windows. Either name can be used on either platform, with the behaviour of the platform it runs on.
 
 ## Call Unix Command Processor
 
