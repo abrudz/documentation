@@ -3,9 +3,9 @@ search:
   boost: 2
 ---
 
-# <span>Execute Unix Command</span> `{R}←⎕SH Y`{{key}}
+# <span>Call Unix Command Processor</span> `{R}←⎕SH Y`{{key}}
 
-`⎕SH` executes a UNIX shell or a Windows Command Processor.  `⎕SH` is a synonym of `⎕CMD`.  Either function may be used in either environment (UNIX or Windows) with exactly the same effect.  `⎕SH` is probably more natural for the UNIX user.  This section describes the behaviour of `⎕SH` and `⎕CMD` under UNIX.  See [Execute Windows Command](execute-windows-command.md) for a discussion of the behaviour of these system functions under Windows.
+This function passes a command to the Unix shell and returns its output. To start an auxiliary processor instead, see [Start Unix Auxiliary Processor](sh-dyadic.md). For the behaviour of `⎕SH` and its synonym [`⎕CMD`](cmd.md) on Microsoft Windows, see [Call Windows Command Processor](cmd-monadic.md).
 
 The system commands [`)SH`](../system-commands/sh.md) and [`)CMD`](../system-commands/cmd.md) provide similar facilities.
 
@@ -16,6 +16,7 @@ The system commands [`)SH`](../system-commands/sh.md) and [`)CMD`](../system-com
 See also [`⎕SHELL`](shell.md).
 
 <h2 class="example">Examples</h2>
+
 ```apl
       ⎕SH'ls'
 FILES WS temp

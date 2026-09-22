@@ -3,24 +3,30 @@ search:
   exclude: true
 ---
 
-# <span>Unix Shell</span> `⎕SH`
+# <span>Unix Processor</span> `⎕SH`
 
-## Monadic `⎕SH` means
+`⎕SH` passes a command to the Unix shell, or starts an auxiliary processor. The presence of a left argument chooses which.
 
-[Execute Unix Command](execute-unix-command.md)
+`⎕SH` and [`⎕CMD`](cmd.md) are synonyms: either name can be used on either platform, with exactly the same effect. What differs is the platform, not the name, so these pages describe Unix and the [`⎕CMD`](cmd.md) pages describe Microsoft Windows. `⎕SH` is the more natural name for the Unix user.
+
+## Call Unix Command Processor
+
+[Monadic `⎕SH`](sh-monadic.md) runs a shell command and returns its output, a line per element:
+
 ```apl
-       ⎕SH'ls'
-FILES WS temp
+      z←⎕SH'ls'
+      z
+┌─────┬────┬──┐
+│FILES│temp│WS│
+└─────┴────┴──┘
 ```
 
-## Dyadic `⎕SH` means
+## Start Unix Auxiliary Processor
 
-[Start Unix Auxiliary Processor](start-unix-auxiliary-processor.md)
+[Dyadic `⎕SH`](sh-dyadic.md) starts an auxiliary processor, defining external functions in the workspace:
+
 ```apl
-      )CLEAR
-clear ws
       'xutils' ⎕SH 'xutils'
       )FNS
 avx     box     dbr     getenv  hex     ltom    ltov    mtol    ss      vtol
-
 ```

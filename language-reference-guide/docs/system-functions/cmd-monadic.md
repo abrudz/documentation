@@ -3,9 +3,9 @@ search:
   boost: 2
 ---
 
-# <span>Execute Windows Command</span> `{R}←⎕CMD Y`{{key}}
+# <span>Call Windows Command Processor</span> `{R}←⎕CMD Y`{{key}}
 
-`⎕CMD` executes the Windows Command Processor or UNIX shell or starts another Windows application program.  `⎕CMD` is a synonym of `⎕SH`.  Either system function may be used in either environment (Windows or UNIX) with exactly the same effect.  `⎕CMD` is probably more natural for the Windows user.  This section describes the behaviour of `⎕CMD` and `⎕SH` under Windows. See [Execute (UNIX) Command](execute-unix-command.md) for a discussion of the behaviour of these system functions under UNIX.
+This function passes a command to the Microsoft Windows Command Processor and returns its output, or starts a Windows program. To start an auxiliary processor instead, see [Start Windows Auxiliary Processor](cmd-dyadic.md). For the behaviour of `⎕CMD` and its synonym [`⎕SH`](sh.md) on Unix, see [Call Unix Command Processor](sh-monadic.md).
 
 The system commands [`)SH`](../system-commands/sh.md) and [`)CMD`](../system-commands/cmd.md) provide similar facilities.
 
@@ -16,6 +16,7 @@ See also [`⎕SHELL`](shell.md).
 If `Y` is a simple character vector, `⎕CMD` invokes the Windows Command Processor (normally `cmd.exe`) and passes the command specified by character vector `Y` to it for execution. The term command means here an instruction recognised by the Command Processor, or the pathname of a program (with optional parameters) to be executed by it. In either case, APL waits for the command to finish and then returns the result `R`,  a vector of character vectors containing its result. Each element in `R` corresponds to a line of output produced by the command.
 
 <h2 class="example">Example</h2>
+
 ```apl
       Z←⎕CMD'dir'
       ⍴Z
@@ -41,6 +42,7 @@ If the command specified in `Y` already contains the redirection symbol (`>`) th
 If this is done, APL detects the presence of a "`>`" in the command line, runs the command processor in a **visible** window, and does not direct output to the pipe.  If you fail to do this your system will appear to hang because there is no mechanism for you to receive or respond to the prompt.
 
 <h2 class="example">Example</h2>
+
 ```apl
       ⎕CMD 'DATE <CON >CON'
 ```
@@ -58,11 +60,13 @@ If this is done, APL detects the presence of a "`>`" in the command line, runs t
 If `Y` specifies a program (with or without parameters) and the pathname to the program  contains spaces, you must enclose the string in double-quotes.
 
 For example, to start a version of Excel to which the pathname is:
+
 ```apl
    C:\Program Files\Microsoft Office\OFFICE11\excel.exe
 ```
 
 the argument to `⎕CMD` should be:
+
 ```apl
 ⎕CMD '"c:\program files\microsoft office\office11\excel.exe"'
 
@@ -73,6 +77,7 @@ the argument to `⎕CMD` should be:
 The Windows Command Processor does not permit more than one set of double-quotes in a command string.
 
 The following statements are all valid:
+
 ```apl
 ⎕CMD 'c:\windows\system32\notepad.exe c:\myfile.txt'  
 ⎕CMD 'c:\windows\system32\notepad.exe "c:\myfile.txt"'
@@ -80,11 +85,13 @@ The following statements are all valid:
 ```
 
 Whereas the next statement, which contains two sets of double-quotes, will fail:
+
 ```apl
 ⎕CMD '"c:\windows\system32\notepad.exe" "c:\myfile.txt"'
 ```
 
 Such a statement can however be executed using the second form of `⎕CMD`(where the argument is a 2-element vector of character vectors) which does not use the Windows Command Processor and is not subject to this restriction. However, the call to `⎕CMD` will return immediately, and no output from the command will be returned.
+
 ```apl
 ⎕CMD'"c:\windows\system32\notepad.exe" "c:\myfile.txt"' ''
 ```
@@ -105,6 +112,7 @@ Before execution, the argument is prefixed and postfixed with strings defined by
 |`>`|if found within the last sub-command, causes `⎕CMD` to use a visible window.|
 
 If you simply wish to open a Command Prompt window, you may execute the command as a Windows Program (see below).  For example:
+
 ```apl
       ⎕CMD 'cmd.exe' ''
 ```
@@ -135,6 +143,7 @@ If `Y` is a 2-element vector of character vectors, `⎕CMD` starts the executabl
 There is no way to terminate an application started by `⎕CMD` from APL; it will run until it completes or is terminated by an external mechanism. Furthermore, if the window parameter is HIDDEN, the user is unaware of the application (unless it makes itself visible) and has no means to close it.
 
 <h3 class="example">Examples</h3>
+
 ```apl
       Path←'c:\Program Files\Microsoft Office\Office\'
       ⎕←⎕CMD (Path,'excel.exe') ''
