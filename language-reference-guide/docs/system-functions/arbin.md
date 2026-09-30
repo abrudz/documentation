@@ -37,6 +37,8 @@ This is a simple numeric integer that identifies the output device. It is option
 - If it is positive or zero, it represents a file descriptor that must have been associated by the command that started Dyalog APL.
 - If it is negative, it represents the tie number of a file opened by `⎕NTIE` or `⎕NCREATE`.
 
+Standard output usually cannot be named explicitly, because a positive or zero `output` must have been associated by the command that started Dyalog APL. Where it was not, giving the file descriptor of standard output signals `DOMAIN ERROR`, even though omitting `output` writes there. Omitting it is therefore the way to reach standard output.
+
 <h3 class="example">Example</h3>
 
 The file **data.txt** holds the three characters `ABC` and a newline. With `output` omitted, `XY` is written to standard output before the file is read:
