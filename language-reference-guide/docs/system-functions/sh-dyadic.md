@@ -16,7 +16,7 @@ avx     box     dbr     getenv  hex     ltom    ltov    mtol    ss      vtol
 ```
 
 !!! Hint "Hints and Recommendations"
-    Although it is still possible for users to create their own APs, Dyalog Ltd. strongly recommends creating shared libraries/DLLs instead.
+    You can still write your own APs, but Dyalog Ltd recommends one of the newer mechanisms instead: a shared library or DLL called through [`⎕NA`](na.md), or an external program run through [`⎕SHELL`](shell.md), which collects its output and reports how it ended.
 
 ## Left Argument
 
