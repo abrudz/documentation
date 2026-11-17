@@ -23,7 +23,7 @@
     
     
       
-        <title>⎕AVU: Atomic Vector Unicode - Language Reference Guide</title>
+        <title>⎕AVU: Atomic Vector Unicode Mapping - Language Reference Guide</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#atomic-vector-unicode-avu" class="md-skip">
+        <a href="#atomic-vector-unicode-mapping-avu" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              <code>⎕AVU</code>: Atomic Vector Unicode
+              <code>⎕AVU</code>: Atomic Vector Unicode Mapping
             
           </span>
         </div>
@@ -8091,6 +8091,34 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -8259,14 +8287,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../underscored-alphabetic-characters/" class="md-nav__link">
+      <a href="../a/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Underscored Alphabetic Characters
+    <code>⎕A</code>: Uppercase Alphabet
   
 
     
@@ -8287,14 +8315,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../a/" class="md-nav__link">
+      <a href="../underscored-alphabetic-characters/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕A</code>: Alphabetic Characters
+    <code>⎕Á</code>: Underscored Uppercase Alphabet
   
 
     
@@ -8555,7 +8583,7 @@
   <span class="md-ellipsis">
     
   
-    <code>⎕AVU</code>: Atomic Vector Unicode
+    <code>⎕AVU</code>: Atomic Vector Unicode Mapping
   
 
     
@@ -8573,7 +8601,7 @@
   <span class="md-ellipsis">
     
   
-    <code>⎕AVU</code>: Atomic Vector Unicode
+    <code>⎕AVU</code>: Atomic Vector Unicode Mapping
   
 
     
@@ -8601,6 +8629,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#character-representation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8612,10 +8651,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rules-for-conversion-on-import" class="md-nav__link">
+  <a href="#translation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rules for Conversion on Import
+        Translation
       
     </span>
   </a>
@@ -8623,10 +8662,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rules-for-conversion-on-export" class="md-nav__link">
+  <a href="#scope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rules for Conversion on Export
+        Scope
       
     </span>
   </a>
@@ -8705,14 +8744,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../class/" class="md-nav__link">
+      <a href="../class-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕CLASS</code>: Class
+    <code>⎕CLASS</code>: Class Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕CLASS</code>: Get Class/Interface Implementation
   
 
     
@@ -8761,14 +8828,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../execute-windows-command/" class="md-nav__link">
+      <a href="../cmd-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕CMD</code>: Execute Windows Command
+    <code>⎕CMD</code>: Call Windows Command Processor
   
 
     
@@ -8789,7 +8856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start-windows-auxiliary-processor/" class="md-nav__link">
+      <a href="../cmd-dyadic/" class="md-nav__link">
         
   
   
@@ -8873,14 +8940,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../csv/" class="md-nav__link">
+      <a href="../csv-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕CSV</code>: Comma Separated Values
+    <code>⎕CSV</code>: Import CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕CSV</code>: Export CSV
   
 
     
@@ -9181,14 +9276,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-representation-monadic/" class="md-nav__link">
+      <a href="../dr-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕DR</code>: Data Representation Monadic
+    <code>⎕DR</code>: Query Data Representation
   
 
     
@@ -9209,14 +9304,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-representation-dyadic/" class="md-nav__link">
+      <a href="../dr-dyadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕DR</code>: Data Representation Dyadic
+    <code>⎕DR</code>: Transform Data Representation
   
 
     
@@ -9405,14 +9500,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../export/" class="md-nav__link">
+      <a href="../export-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕EXPORT</code>: Export Object
+    <code>⎕EXPORT</code>: Query Export Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕EXPORT</code>: Set Export Type
   
 
     
@@ -9741,14 +9864,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../format-monadic/" class="md-nav__link">
+      <a href="../fmt-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕FMT</code>: Format Monadic
+    <code>⎕FMT</code>: Resolve Display Format
   
 
     
@@ -9769,14 +9892,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../format-dyadic/" class="md-nav__link">
+      <a href="../fmt-dyadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕FMT</code>: Format Dyadic
+    <code>⎕FMT</code>: Format Array
   
 
     
@@ -10049,14 +10172,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../fresize/" class="md-nav__link">
+      <a href="../fresize-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕FRESIZE</code>: File Resize
+    <code>⎕FRESIZE</code>: Compact Component File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fresize-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕FRESIZE</code>: Resize Component File
   
 
     
@@ -10497,14 +10648,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../map/" class="md-nav__link">
+      <a href="../map-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕MAP</code>: Map File
+    <code>⎕MAP</code>: Map Array File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕MAP</code>: Map Raw Data File
   
 
     
@@ -10581,14 +10760,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../set-monitor/" class="md-nav__link">
+      <a href="../monitor-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕MONITOR</code>: Set Monitor
+    <code>⎕MONITOR</code>: Query Monitor Controls
   
 
     
@@ -10609,14 +10788,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../query-monitor/" class="md-nav__link">
+      <a href="../monitor-dyadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕MONITOR</code>: Query Monitor
+    <code>⎕MONITOR</code>: Set Monitor Controls
   
 
     
@@ -11477,14 +11656,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../nxlate/" class="md-nav__link">
+      <a href="../nxlate-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕NXLATE</code>: Native File Translate
+    <code>⎕NXLATE</code>: Query Native File Translation Vector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nxlate-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕NXLATE</code>: Set Native File Translation Vector
   
 
     
@@ -11512,7 +11719,7 @@
   <span class="md-ellipsis">
     
   
-    <code>⎕OFF</code>: Sign Off APL
+    <code>⎕OFF</code>: End Session
   
 
     
@@ -11617,14 +11824,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../pfkey/" class="md-nav__link">
+      <a href="../pfkey-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕PFKEY</code>: Program Function Key
+    <code>⎕PFKEY</code>: Query Programmable Function Key
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pfkey-dyadic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PFKEY</code>: Set Programmable Function Key
   
 
     
@@ -11680,7 +11915,203 @@
   <span class="md-ellipsis">
     
   
-    <code>⎕PROFILE</code>: Profile Application
+    <code>⎕PROFILE</code>: Profiling Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PROFILE'start'</code>: Start Profiling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PROFILE'stop'</code>: Stop Profiling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-clear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PROFILE'clear'</code>: Clear Profiling Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-calibrate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PROFILE'calibrate'</code>: Calibrate Profiling Timer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PROFILE'state'</code>: Query Profiling State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PROFILE'data'</code>: Get Flat Profiling Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code>⎕PROFILE'tree'</code>: Get Profiling Data Tree
   
 
     
@@ -11981,14 +12412,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../execute-unix-command/" class="md-nav__link">
+      <a href="../sh-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SH</code>: Execute Unix Command
+    <code>⎕SH</code>: Call Unix Command Processor
   
 
     
@@ -12009,7 +12440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start-unix-auxiliary-processor/" class="md-nav__link">
+      <a href="../sh-dyadic/" class="md-nav__link">
         
   
   
@@ -12373,14 +12804,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../set-stop/" class="md-nav__link">
+      <a href="../stop-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕STOP</code>: Set Stop
+    <code>⎕STOP</code>: Query Stop Vector
   
 
     
@@ -12401,14 +12832,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../query-stop/" class="md-nav__link">
+      <a href="../stop-dyadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕STOP</code>: Query Stop
+    <code>⎕STOP</code>: Set Stop Vector
   
 
     
@@ -12429,14 +12860,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../set-access-control/" class="md-nav__link">
+      <a href="../svc-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SVC</code>: Set Access Control
+    <code>⎕SVC</code>: Query Shared Variable Access Control
   
 
     
@@ -12457,14 +12888,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../query-access-control/" class="md-nav__link">
+      <a href="../svc-dyadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SVC</code>: Query Access Control
+    <code>⎕SVC</code>: Set Shared Variable Access Control
   
 
     
@@ -12485,14 +12916,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../shared-variable-offer/" class="md-nav__link">
+      <a href="../svo-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SVO</code>: Shared Variable Offer
+    <code>⎕SVO</code>: Query Shared Variable Degree of Coupling
   
 
     
@@ -12513,14 +12944,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../query-degree-of-coupling/" class="md-nav__link">
+      <a href="../svo-dyadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕SVO</code>: Query Degree of Coupling
+    <code>⎕SVO</code>: Offer Shared Variable
   
 
     
@@ -12548,7 +12979,7 @@
   <span class="md-ellipsis">
     
   
-    <code>⎕SVQ</code>: Shared Variable Query
+    <code>⎕SVQ</code>: Query Shared Variable
   
 
     
@@ -12576,7 +13007,7 @@
   <span class="md-ellipsis">
     
   
-    <code>⎕SVR</code>: Shared Variable Retract Offer
+    <code>⎕SVR</code>: Retract Shared Variable Offer
   
 
     
@@ -12604,7 +13035,7 @@
   <span class="md-ellipsis">
     
   
-    <code>⎕SVS</code>: Shared Variable State
+    <code>⎕SVS</code>: Query Shared Variable State
   
 
     
@@ -13045,14 +13476,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../set-trace/" class="md-nav__link">
+      <a href="../trace-monadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕TRACE</code>: Set Trace
+    <code>⎕TRACE</code>: Query Trace Vector
   
 
     
@@ -13073,14 +13504,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../query-trace/" class="md-nav__link">
+      <a href="../trace-dyadic/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    <code>⎕TRACE</code>: Query Trace
+    <code>⎕TRACE</code>: Set Trace Vector
   
 
     
@@ -14601,7 +15032,7 @@
   <span class="md-ellipsis">
     
   
-    SH: Execute UNIX Command
+    SH: Execute Unix Command
   
 
     
@@ -14882,6 +15313,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#character-representation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14893,10 +15335,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rules-for-conversion-on-import" class="md-nav__link">
+  <a href="#translation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rules for Conversion on Import
+        Translation
       
     </span>
   </a>
@@ -14904,10 +15346,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rules-for-conversion-on-export" class="md-nav__link">
+  <a href="#scope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rules for Conversion on Export
+        Scope
       
     </span>
   </a>
@@ -14997,48 +15439,70 @@
 
 
 
-<h1 id="atomic-vector-unicode-avu"><span>Atomic Vector - Unicode</span> <code>⎕AVU</code></h1>
-<p><code>⎕AVU</code> specifies the contents of the atomic vector, <code>⎕AV</code>, and is used to translate data between Unicode and non-Unicode character formats when required, for example when:</p>
-<ul>
-<li>Unicode Edition loads or copies a Classic Edition workspace or a workspace saved by a Version prior to Version 12.0.</li>
-<li>Unicode Edition reads character data from a non-Unicode component file, or receives data type 82 from a TCP socket.</li>
-<li>Unicode Edition writes data to a non-Unicode component file</li>
-<li>Unicode Edition reads or writes data from or to a Native File using conversion code 82.</li>
-<li>Classic Edition loads or copies a Unicode Edition workspace</li>
-<li>Classic Edition reads character data from a Unicode component file, or receives data type 80, 160, or 320 from a TCP socket.</li>
-<li>Classic Edition writes data to a Unicode component file.</li>
-</ul>
-<p><code>⎕AVU</code> is an integer vector with 256 elements, containing the Unicode code points which define the characters in <code>⎕AV</code>. <code>⎕AVU</code> has Namespace scope.</p>
-<h2 id="character-representation">Character Representation</h2>
-<p>Prior to Dyalog v12.0 and in the Classic Edition, a character is stored internally as an index into the atomic vector, <code>⎕AV</code>. When a character is displayed or printed, the index in <code>⎕AV</code> is translated to a number in the range 0-255 which represents the index of the character in an Extended ASCII font. This mapping is done by the Output Translate Table, which is user-configurable. Although ASCII fonts typically all contain the same symbols in the range 0-127, there are a number of different Extended ASCII font layouts, including proprietary APL fonts, that provide different symbols in positions 128-255. The symbol that appears on the screen or on the printed page is, therefore, a function of the Output Translate Table and the font in use. Classic Edition provides two different fonts (and thus two different <code>⎕AV</code> layouts) for use with the Development Environment, named <em>Dyalog Std</em> (with APL underscores) and <em>Dyalog Alt</em> (without APL underscores).</p>
-<p>The default value of <code>⎕AVU</code> corresponds to the use of the <strong>Dyalog Alt</strong> Output Translate Table and font in the Classic Edition or in earlier versions of Dyalog APL.
-</p><pre class="highlight"><code class="language-apl">      2 13⍴⎕AVU[97+⍳26]
-193 194 195 199 200 202 203 204 205 206 207 208 210
-211 212 213 217 218 219 221 254 227 236 240 242 245
-      ⎕UCS 2 13⍴⎕AVU[97+⍳26]
-ÁÂÃÇÈÊËÌÍÎÏÐÒ
-ÓÔÕÙÚÛÝþãìðòõ</code></pre>
-<p><code>⎕AVU</code> can be localised, in order to make it straightforward to write access functions which receive or read data from systems with varying atomic vectors. If you have been using Dyalog Alt for most things but have some older code which uses underscores, you can bring this code together in the same workspace and have it all look "as it should" by using the Alt and Std definitions for <code>⎕AVU</code> as you copy each part of the code into the same Unicode Edition workspace.
-</p><pre class="highlight"><code class="language-apl">      )COPY avu.dws Std.⎕AVU
-C:\Program Files\Dyalog\Dyalog APL 12.0 Unicode\ws\avu saved Thu Dec 06 11:24:32 2007
+<h1 id="atomic-vector-unicode-mapping-avu"><span>Atomic Vector Unicode Mapping</span> <code>⎕AVU</code></h1>
+<p><code>⎕AVU</code> lists the Unicode code points of the characters of the <a href="../av/">atomic vector</a>, <code>⎕AV</code>. It defines the content of <code>⎕AV</code> in the Unicode Edition, and is used to <a href="#translation">translate</a> characters between the Unicode Edition and the Classic Edition.</p>
+<div class="admonition legacy">
+<p class="admonition-title">Legacy</p>
+<p><code>⎕AVU</code> is retained for backwards compatibility purposes. It is relevant only to the Classic Edition, and to data that the Unicode Edition exchanges with the Classic Edition or with versions earlier than 12.0.</p>
+</div>
+<h2 class="example">Example</h2>
 
-      2 13⍴⎕AVU[97+⍳26]
-9398 9399 9400 9401 9402 9403 9404 9405 9406 9407 9408 9409 9410
-9411 9412 9413 9414 9415 9416 9417 9418 9419 9420 9421 9422 9423
-       ⎕UCS 2 13⍴⎕AVU[97+⍳26]
-ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂ
-ⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ</code></pre>
+<p>The namespaces <code>Std</code> and <code>Russian</code> in the workspace <a href="#character-representation"><code>avu</code></a> have their own values of <code>⎕AVU</code>, and therefore their own layouts of <code>⎕AV</code>:</p>
+<pre class="highlight"><code class="language-apl">      'Std' 'Russian'⎕CY'avu'
+      Std.⎕AV[97+⍳26]
+ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ
+      Russian.⎕AV[97+⍳26]
+ЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮ
+      ⎕AV[97+⍳26]
+ÁÂÃÇÈÊËÌÍÎÏÐÒÓÔÕÙÚÛÝþãìðòõ</code></pre>
+<h2 id="value">Value</h2>
+<p><code>⎕AVU</code> is a simple integer vector of 256 distinct Unicode code points, each in the range <code>0</code> to <code>65535</code>. Each item is the code point of the character in the same position of <code>⎕AV</code>.</p>
+<p>The value in a clear workspace corresponds to the <em>Dyalog Alt</em> output translate table and font of the Classic Edition.</p>
+<h2 id="character-representation">Character Representation</h2>
+<p>The Classic Edition, and Dyalog APL versions earlier than 12.0, store each character as its position in <code>⎕AV</code>. When a character is displayed or printed, the output translate table, which is user-configurable, translates this position into the position of a symbol in an extended ASCII font. Extended ASCII fonts typically agree on positions 0 to 127, but have different symbols in positions 128 to 255, and some of them are APL fonts. The symbol that appears on the screen or on the printed page therefore depends on both the output translate table and the font.</p>
+<p>The Classic Edition provides two fonts, and therefore two layouts of <code>⎕AV</code>, for the development environment: <em>Dyalog Std</em>, with the APL underscored alphabet, and <em>Dyalog Alt</em>, without it. In Dyalog Alt, <code>⎕AV[97+⍳26]</code> contains accented letters instead.</p>
+<p>The workspace <code>avu</code> contains the namespaces <code>Alt</code>, <code>Std</code>, and <code>Russian</code>, whose values of <code>⎕AVU</code> give the corresponding layouts of <code>⎕AV</code>. Its namespace <code>v12_1</code> contains the same three namespaces, with the values of <code>⎕AVU</code> in version 12.1.</p>
+<p>Unicode does not contain the underscored letters. Dyalog APL maps the <a href="../underscored-alphabetic-characters/">underscored alphabet</a> onto Unicode's circled letters, <code>⎕UCS 9397+⍳26</code>, which APL fonts such as <em>APL385 Unicode</em> display as underscored letters.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hints and Recommendations</p>
-<p>The majority of Unicode fonts display APL's underscored alphabet as a circled alphabet instead. Unicode does not contain the underscored letters as distinct glyphs; Dyalog APL maps these characters to the Unicode positions for the circled alphabet, and provides APL fonts (such as APL385 Unicode) that display them as underscores. To avoid confusion, Dyalog Ltd recommends that you remove underscored characters from your APL application at your earliest convenience.</p>
+<p>Most Unicode fonts display the underscored alphabet as circled letters. To avoid confusion, Dyalog Ltd recommends removing underscored characters from APL applications.</p>
 </div>
-<h2 id="rules-for-conversion-on-import">Rules for Conversion on Import</h2>
-<p>When the Unicode Edition imports APL objects from a non-Unicode source, function comments and character data of type 82 are converted to Unicode. When the Classic Edition imports APL objects from a Unicode source, this translation is performed in reverse.</p>
-<p>If the objects are imported from a Version 12.0 (or later) workspace (that is, from a workspace that contains its own value of <code>⎕AVU</code>) the value of <code>#.⎕AVU</code> (the value of <code>⎕AVU</code> in the root) in the <em>source</em> workspace is used. Otherwise, such as when APL objects are imported from a pre-Version 12 workspace, from a component file, or from a TCP socket, the local value of <code>⎕AVU</code> in the <em>target</em> workspace is used.</p>
-<h2 id="rules-for-conversion-on-export">Rules for Conversion on Export</h2>
-<p>When the Unicode Edition exports APL objects to a non-Unicode destination, such as a non-Unicode Component File or non-Unicode TCPSocket Object, function comments (in <code>⎕OR</code>s) and character data of type 82 are converted to <code>⎕AV</code> indices using the local value of <code>⎕AVU</code>.</p>
-<p>When the Classic Edition exports APL objects to a Unicode destination, such as a Unicode Component File or Unicode TCPSocket Object, function comments (in <code>⎕OR</code>s) and character data of type 82 are converted to Unicode using the local value of <code>⎕AVU</code>.</p>
-<p>In all cases, if a character to be translated is not defined in <code>⎕AVU</code>, a <code>TRANSLATION ERROR</code> (event number 92) will be signalled.</p>
+<h2 id="translation">Translation</h2>
+<p>The Unicode Edition translates characters between their Unicode code points and their positions in <code>⎕AV</code> when it:</p>
+<ul>
+<li>loads or copies a workspace saved by the Classic Edition or by a version earlier than 12.0</li>
+<li>reads characters from, or writes characters to, a non-Unicode component file</li>
+<li>reads or writes a native file with conversion code 82</li>
+<li>receives data type 82 from a TCP socket</li>
+</ul>
+<p>The Classic Edition makes the same translation when it:</p>
+<ul>
+<li>loads or copies a workspace saved by the Unicode Edition</li>
+<li>reads characters from, or writes characters to, a Unicode component file</li>
+<li>receives data type 80, 160, or 320 from a TCP socket</li>
+</ul>
+<p>The translation applies to character data and to the comments in the <a href="../or/"><code>⎕OR</code></a> of a function. Data from a workspace saved by version 12.0 or later is translated with the value of <code>⎕AVU</code> in the root of that workspace, <code>#.⎕AVU</code>. All other translation uses the value of <code>⎕AVU</code> in the current namespace.</p>
+<p>A character that is not in <code>⎕AV</code> cannot be translated, and signals <code>TRANSLATION ERROR</code>. A component file whose <a href="../fprops/"><code>U</code> property</a> is <code>0</code> is non-Unicode:</p>
+<pre class="highlight"><code class="language-apl">      'chars'⎕FCREATE 1
+      ('U' 0)⎕FPROPS 1
+1
+      'abc'⎕FAPPEND 1
+      'αβγ'⎕FAPPEND 1
+TRANSLATION ERROR: Unicode character ⎕UCS 945 (U+03B1) not in ⎕AVU
+      'αβγ'⎕FAPPEND 1
+           ∧</code></pre>
+<p>A function that localises <code>⎕AVU</code> can read characters that were written with a different atomic vector. Here, the file holds the characters at <code>⎕AV[97+⍳26]</code>, which the Classic Edition displays as the underscored alphabet with the Dyalog Std font. Copying <code>Std.⎕AVU</code> from the workspace <code>avu</code> sets the local value:</p>
+<pre class="highlight"><code class="language-apl">      ⎕AV[97+⍳26]⎕FAPPEND 1
+      ∇ R←ReadStd;⎕AVU
+[1]    'Std.⎕AVU'⎕CY'avu'
+[2]    R←⎕FREAD 1 2
+      ∇
+      ⎕FREAD 1 2
+ÁÂÃÇÈÊËÌÍÎÏÐÒÓÔÕÙÚÛÝþãìðòõ
+      ReadStd
+ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ</code></pre>
+<h2 id="scope">Scope</h2>
+<p><code>⎕AVU</code> has <a href="../system-functions-by-category/#system-variables">namespace scope</a>. This means that each namespace has its own value, which a new namespace takes from its parent. A defined function or operator can localise <code>⎕AVU</code>, which keeps its value until it is assigned.</p>
 <!-- Hidden search keywords -->
 <div style="display: none;">
   ⎕AVU AVU
