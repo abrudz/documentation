@@ -10,7 +10,7 @@ search:
 `⎕PP` is an [implicit argument](../primitive-functions/notes.md#implicit-arguments) of:
 
 - monadic functions: [`⍕`](../primitive-functions/format.md)
-- system functions: [`⎕FMT`](format-monadic.md)
+- system functions: [`⎕FMT`](fmt-monadic.md)
 - other syntax: [`⎕`](quad-output.md) and [`⍞`](quotequad-output.md) output
 
 `⎕PP` is ignored for the display of integers.
@@ -37,7 +37,7 @@ If `⎕PP` is set to a value `≥17` (when `⎕FR` is 645) or 34 (when `⎕FR` i
 
 - [Array notation output](../../programming-reference-guide/introduction/arrays/display-of-arrays.md#array-notation) (when `]APLAN.Output` is on)
 - [`⎕JSON`](json-export.md) export
-- [`⎕CSV`](csv.md) export
+- [`⎕CSV`](csv-dyadic.md) export
 - [`⎕XML`](xml-export.md) export
 
 ## See Also
