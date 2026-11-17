@@ -173,7 +173,8 @@ These are tools to convert between common representations of data.
 |[`⎕DT`](dt.md)   |Datetime                                              |Dyadic function|
 |[`⎕FMT`](fmt-monadic.md)  |Resolve Display Format                    |Monadic function|
 |[`⎕FMT`](fmt-dyadic.md)  |Format Array                               |Dyadic function|
-|[`⎕JSON`](json.md) |JSON Convert                                        |Ambivalent function|
+|[`⎕JSON`](json-import.md) |Import JSON                                         |Ambivalent function|
+|[`⎕JSON`](json-export.md) |Export JSON                                         |Ambivalent function|
 |[`⎕TS`](ts.md)      |Timestamp                                          |Constant|
 |[`⎕UCS`](ucs.md)  |Unicode Convert                                      |Ambivalent function|
 |[`⎕VFI`](vfi.md)  |Verify and Fix numeric                               |Ambivalent function|
