@@ -127,7 +127,7 @@ search:
 |[`⎕NUNTIE`](../nuntie.md)  |Untie Files                                                  |Monadic function|
 |[`⎕NXLATE`](../nxlate-monadic.md)  |Query Native File Translation Vector|Monadic function|
 |[`⎕NXLATE`](../nxlate-dyadic.md)  |Set Native File Translation Vector|Dyadic function|
-|[`⎕OFF`](../off.md)    |End the session            |Constant|
+|[`⎕OFF`](../off.md)    |End Session                |Constant|
 |[`⎕OPT`](../or.md)     |Variant            |Dyadic operator|
 |[`⎕OR`](../or.md)     |Object Representation   |Monadic function|
 |[`⎕PATH`](../path.md)  |Search Path            |Variable|
