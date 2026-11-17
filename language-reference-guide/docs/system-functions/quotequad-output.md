@@ -52,7 +52,7 @@ $
 O
 ```
 
-[`⎕FMT`](format-dyadic.md) resolves overstrikes the same way, which is a convenient way to discover what a pair produces:
+[`⎕FMT`](fmt-dyadic.md) resolves overstrikes the same way, which is a convenient way to discover what a pair produces:
 
 ```apl
       ⎕FMT'S'(⎕UCS 8)'|'
