@@ -18,7 +18,7 @@ search:
 |[`⎕AT`](../at-dyadic.md)|Object Attributes for APL2|Dyadic function|
 |[`⎕ATX`](../atx.md)   |Extended Attributes     |Dyadic function|
 |[`⎕AV`](../av.md)   |Atomic Vector              |Constant|
-|[`⎕AVU`](../avu.md)  |Atomic Vector - Unicode         |Variable|
+|[`⎕AVU`](../avu.md)  |Atomic Vector Unicode Mapping   |Variable|
 |[`⎕BASE`](../base.md)     |Base Class   |Reference|
 |[`⎕C`](../c.md)    |Case Convert                                           |Ambivalent function|
 |[`⎕CLASS`](../class-monadic.md)    |Class Hierarchy|Monadic function|
@@ -125,7 +125,8 @@ search:
 |[`⎕NTIE`](../ntie.md)    |Tie a File exclusively                                       |Dyadic function|
 |[`⎕NULL`](../null.md)|Null Item                       |Variable|
 |[`⎕NUNTIE`](../nuntie.md)  |Untie Files                                                  |Monadic function|
-|[`⎕NXLATE`](../nxlate.md)  |Specify Translation Table |Ambivalent function|
+|[`⎕NXLATE`](../nxlate-monadic.md)  |Query Native File Translation Vector|Monadic function|
+|[`⎕NXLATE`](../nxlate-dyadic.md)  |Set Native File Translation Vector|Dyadic function|
 |[`⎕OFF`](../off.md)    |End the session            |Constant|
 |[`⎕OPT`](../or.md)     |Variant            |Dyadic operator|
 |[`⎕OR`](../or.md)     |Object Representation   |Monadic function|
