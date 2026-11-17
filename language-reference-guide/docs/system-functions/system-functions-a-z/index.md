@@ -24,8 +24,8 @@ search:
 |[`⎕CLASS`](../class-monadic.md)    |Class Hierarchy|Monadic function|
 |[`⎕CLASS`](../class-dyadic.md)    |Get Class/Interface Implementation|Dyadic function |
 |[`⎕CLEAR`](../clear.md)|Clear workspace (WS)       |Constant|
-|[`⎕CMD`](../execute-windows-command.md)  |Execute the Windows Command Processor or another program|Monadic function|
-|[`⎕CMD`](../start-windows-auxiliary-processor.md)  |Start a Windows Auxiliary Processor|Dyadic function|
+|[`⎕CMD`](../cmd-monadic.md)  |Call Windows Command Processor|Monadic function|
+|[`⎕CMD`](../cmd-dyadic.md)  |Start a Windows Auxiliary Processor|Dyadic function|
 |[`⎕CR`](../cr.md)     |Canonical Representation|Monadic function|
 |[`⎕CS`](../cs.md)       |Change Space   |Monadic function|
 |[`⎕CSV`](../csv.md)  |Comma Separated Values                               |Ambivalent function|
