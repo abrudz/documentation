@@ -28,7 +28,8 @@ search:
 |[`⎕CMD`](../cmd-dyadic.md)  |Start a Windows Auxiliary Processor|Dyadic function|
 |[`⎕CR`](../cr.md)     |Canonical Representation|Monadic function|
 |[`⎕CS`](../cs.md)       |Change Space   |Monadic function|
-|[`⎕CSV`](../csv.md)  |Comma Separated Values                               |Ambivalent function|
+|[`⎕CSV`](../csv-monadic.md)  |Import CSV                                           |Monadic function|
+|[`⎕CSV`](../csv-dyadic.md)  |Export CSV                                           |Dyadic function|
 |[`⎕CT`](../ct.md) |Comparison Tolerance         |Variable|
 |[`⎕CY`](../cy.md)      |Copy objects into active WS|Function|
 |[`⎕D`](../d.md)   |Digits                          |Variable|
