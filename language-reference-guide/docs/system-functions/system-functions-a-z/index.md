@@ -32,7 +32,7 @@ search:
 |[`⎕D`](../d.md)   |Digits                          |Variable|
 |[`⎕DCT`](../dct.md)|Decimal Comp Tolerance      |Variable|
 |[`⎕DF`](../df.md)       |Display Format |Monadic function|
-|[`⎕DIV`](../div.md)|Division Method             |Variable|
+|[`⎕DIV`](../div.md)|Division Behaviour          |Variable|
 |[`⎕DL`](../dl.md)      |Delay execution            |Function|
 |[`⎕DM`](../dm.md)       |Diagnostic Message    |Constant|
 |[`⎕DMX`](../dmx.md)      |Extended Diagnostic Message                     |Reference|

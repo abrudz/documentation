@@ -121,7 +121,7 @@ Certain primitives and system functions have behaviour that is customised global
 |------|-----------------------------------------|
 |[`⎕CT`](ct.md) |Comparison Tolerance         |
 |[`⎕DCT`](dct.md)|Decimal Comp Tolerance      |
-|[`⎕DIV`](div.md)|Division Method             |
+|[`⎕DIV`](div.md)|Division Behaviour          |
 |[`⎕FR`](fr.md) |Floating-Point Representation|
 |[`⎕IO`](io.md) |Index Origin                 |
 |[`⎕ML`](ml.md) |Migration Level              |
@@ -413,7 +413,7 @@ A system variable can never be undefined. Default values are assigned to all sys
 |[`⎕AVU`](avu.md)  |Atomic Vector – Unicode[†](#archaic-and-deprecated)|Namespace  |
 |[`⎕CT`](ct.md)    |Comparison Tolerance                |Namespace  |
 |[`⎕DCT`](dct.md)  |Decimal Comparison Tolerance              |Namespace  |
-|[`⎕DIV`](div.md)  |Division Method                     |Namespace  |
+|[`⎕DIV`](div.md)  |Division Behaviour                  |Namespace  |
 |[`⎕FR`](fr.md)    |Floating-Point Representation       |Namespace  |
 |[`⎕IO`](io.md)    |Index Origin                        |Namespace  |
 |[`⎕LX`](lx.md)    |Latent Expression                   |Workspace  |

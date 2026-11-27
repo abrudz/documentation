@@ -5,7 +5,7 @@ search:
 
 # <span>Floating-Point Representation</span> `⎕FR`
 
-The value of `⎕FR` determines the way that floating-point operations are performed.
+`⎕FR` determines how floating-point numbers are represented, and therefore how floating-point arithmetic is done.
 
 `⎕FR` is an [implicit argument](../primitive-functions/notes.md#implicit-arguments) of:
 
@@ -18,76 +18,104 @@ The value of `⎕FR` determines the way that floating-point operations are perfo
 - operators: [`⌸`](../primitive-operators/key.md)
 - system functions: [`⎕FX`](fx.md)
 
-If `⎕FR` is 645, all floating-point calculations are performed using IEEE 754 64-bit floating-point operations and the results of these operations are represented internally using [*binary64*](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) floating-point format.
+<h2 class="example">Example</h2>
 
-If `⎕FR` is 1287, all floating-point calculations are performed using IEEE 754-2008 128-bit decimal floating-point operations and the results of these operations are represented internally using [*decimal128*](https://en.wikipedia.org/wiki/Decimal128_floating-point_format) format.
+```apl
+      ⎕DR 0.1
+645
+      ⎕FR←1287
+      ⎕DR 0.1
+1287
+```
 
-When you change `⎕FR`, its new value only affects subsequent floating-point operations and results. Existing floating-point values stored in the workspace remain unchanged.
+## Value
 
-The default value of `⎕FR` (its value in a `clear ws`) is configurable.
+`⎕FR` is one of:
 
-`⎕FR`  has namespace scope but may be localised. If so, like most other system variables, it inherits its initial value from the global environment.
+- `645` – floating-point numbers are represented in the IEEE 754 [*binary64*](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) format, with about 16 significant decimal digits and magnitudes up to about `1.8E308` (default).
+- `1287` – floating-point numbers are represented in the IEEE 754-2008 [*decimal128*](https://en.wikipedia.org/wiki/Decimal128_floating-point_format) format, with 34 significant decimal digits and magnitudes up to about `1E6145`.
 
-**However:** Although `⎕FR` *can* vary, the system is *not designed* to allow "seamless" modification during the running of an application and the dynamic alteration of is not recommended.  Strange effects may occur. For example, the type of a constant contained in a line of code (in a function or class), will depend on the value of `⎕FR` *when the function is fixed*.
+Any other value signals `DOMAIN ERROR`. The value in a clear workspace is `645`.
 
-Consider also:
+## Changing the Representation
+
+Changing `⎕FR` affects only the floating-point numbers that are computed afterwards. Existing arrays keep their representation, so a workspace can hold numbers in both representations. A function that only rearranges an array, such as _take_ (`↑`), keeps its representation, while the result of a computation has the representation that `⎕FR` gives when it is computed, whatever the representation of its arguments:
+
+```apl
+      ⎕FR←1287
+      x←1.1 2.2 3.3
+      ⎕FR←645
+      ⎕DR x
+1287
+      ⎕DR 2↑x
+1287
+      ⎕DR x+0
+645
+```
+
+A decimal number whose magnitude is too large for the binary representation signals `DOMAIN ERROR` when it is used in a computation:
+
+```apl
+      ⎕FR←1287
+      x←1E1000
+      ⎕FR←645
+      x+0
+DOMAIN ERROR: ⎕FR=645 limits arithmetic to the range +/-1.79E308 (approx)
+      x+0
+       ∧
+```
+
+Comparisons use the tolerance for the current `⎕FR`, [`⎕CT`](ct.md) for `645` and [`⎕DCT`](dct.md) for `1287`. A decimal `1÷3` is equal to a binary one within `⎕CT`, but not within the much smaller `⎕DCT`:
+
 ```apl
       ⎕FR←1287
       x←1÷3
-      
       ⎕FR←645
       x=1÷3
 1
-```
-
-The decimal number has 17 more 3's. Using the tolerance which applies to binary floats (type 645), the numbers are equal. However, the "reverse" experiment yields 0, as tolerance is much narrower in the decimal universe:
-```apl
-      ⎕FR←645
       x←1÷3
       ⎕FR←1287
       x=1÷3
 0
 ```
 
-Since `⎕FR` can vary, it will be possible for a single workspace to contain floating-point values of both types (existing variables are not converted when `⎕FR` is changed). For example, an array that has just been brought into the workspace from external storage may have a different type from `⎕FR` in the current namespace. Conversion (if necessary) will only take place when a *new* floating-point array is generated as the result of "a calculation". The result of a computation returning a floating-point result will *not* depend on the type of the arrays involved in the expression: `⎕FR` at the time when a computation is performed decides the result type, alone.
+## Constants
 
-Structural functions generally do NOT change the type, for example:
-```apl
-      ⎕FR←1287
-      x←1.1 2.2 3.3
-      
-      ⎕FR←645
-      ⎕DR x
-1287
-      ⎕DR 2↑x
-1287
-```
+A numeric constant gets its representation from the value of `⎕FR` when the constant is read: for a Session line, before any of the line runs, and for a function, when the function is fixed. Changing `⎕FR` while an application runs is therefore not recommended.
 
-128-bit decimal numbers not only have greater precision (roughly 34 decimal digits); they also have significantly larger range – from `¯1E6145` to `1E6145`. Loss of precision is accepted on conversion from 645 to 1287, but the magnitude of a number may make the conversion impossible, in which case a `DOMAIN ERROR` is issued:
-```apl
-      ⎕FR←1287
-      x←1E1000
-      ⎕FR←645 ⋄ x+0
-DOMAIN ERROR
-```
+<h3 class="example">Examples</h3>
 
-When experimenting with `⎕FR`, it is important to remember that numeric constants entered into the Session are evaluated (and assigned a data type) before the line is actually executed. This means that constants are evaluated according to the value of `⎕FR` that pertained before the line was entered. For example:
+The constant `0.1` is read before `⎕FR←1287` runs:
+
 ```apl
       ⎕FR←645
-      ⎕FR
-645
- 
       ⎕FR←1287 ⋄ ⎕DR 0.1
 645
       ⎕DR 0.1
 1287
 ```
 
-!!! Warning "Warning"
-    The use of COMPLEX numbers when `⎕FR` is 1287 is not recommended, because:
+`Tenth` is fixed while `⎕FR` is `645`, so its constant stays binary:
 
-    - any 128-bit decimal array into which a complex number is inserted or appended will be forced in its entirety into complex representation, potentially losing precision.
-    - All comparisons are done using `⎕DCT` when `⎕FR` is 1287, and the default value of `1E¯28` is equivalent to 0 for complex numbers.
+```apl
+      ⎕FR←645
+      ∇ R←Tenth
+        R←0.1
+      ∇
+      ⎕FR←1287
+      ⎕DR Tenth
+645
+```
+
+!!! Warning "Warning"
+    Complex numbers are not recommended when `⎕FR` is `1287`:
+
+    - Complex numbers are always binary, so inserting a complex number into a decimal array, or appending one to it, converts the whole array to binary complex numbers, which can lose precision.
+    - Comparisons use `⎕DCT`, whose default of `1E¯28` is in effect `0` for complex numbers.
+
+## Scope
+
+`⎕FR` has [namespace scope](system-functions-by-category.md#system-variables). A new namespace starts with the value of the namespace that creates it, and a function that localises `⎕FR` starts with its current value.
 
 <!-- Hidden search keywords -->
 <div style="display: none;">

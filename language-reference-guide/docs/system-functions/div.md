@@ -3,39 +3,43 @@ search:
   boost: 2
 ---
 
-# <span>Division Method</span> `⎕DIV`
+# <span>Division Behaviour</span> `⎕DIV`
 
-The value of `⎕DIV` determines how division by zero is to be treated.  If `⎕DIV=0`, division by 0 produces a `DOMAIN ERROR` except that the special case of `0÷0` returns 1.
+`⎕DIV` determines what division by zero gives.
 
 `⎕DIV` is an [implicit argument](../primitive-functions/notes.md#implicit-arguments) of:
 
 - monadic functions: [`÷`](../primitive-functions/reciprocal.md)
 - dyadic functions: [`÷`](../primitive-functions/divide.md)
 
-If `⎕DIV=1`, division by 0 returns 0.
+<h2 class="example">Example</h2>
 
-`⎕DIV` may be assigned the value 0 or 1.  The value in a clear workspace is 0. `⎕DIV` has Namespace scope.
-
-<h2 class="example">Examples</h2>
 ```apl
-      ⎕DIV←0
- 
-      1 0 2 ÷ 2 0 1
+      1 0 2÷2 0 1
 0.5 1 2
- 
       ÷0 1
-DOMAIN ERROR
+DOMAIN ERROR: Divide by zero
       ÷0 1
-      ^
- 
+      ∧
       ⎕DIV←1
- 
       ÷0 2
 0 0.5
- 
-      1 0 2 ÷ 0 0 4
+      1 0 2÷0 0 4
 0 0 0.5
 ```
+
+## Value
+
+`⎕DIV` is one of:
+
+- `0` – division by zero signals `DOMAIN ERROR`, except that `0÷0` is `1` (default).
+- `1` – division by zero gives `0`, `0÷0` included.
+
+Any other value signals `DOMAIN ERROR`. The configuration parameter [**DEFAULT_DIV**](../../windows-installation-and-configuration-guide/configuration-parameters/default-div.md) sets the value in a clear workspace.
+
+## Scope
+
+`⎕DIV` has [namespace scope](system-functions-by-category.md#system-variables). A new namespace starts with the value of the namespace that creates it, and a function that localises `⎕DIV` starts with its current value.
 
 <!-- Hidden search keywords -->
 <div style="display: none;">

@@ -318,7 +318,7 @@ nav:
           - '<code>⎕D</code>: Digits': system-functions/d.md
           - '<code>⎕DCT</code>: Decimal Comparison Tolerance': system-functions/dct.md
           - '<code>⎕DF</code>: Display Form': system-functions/df.md
-          - '<code>⎕DIV</code>: Division Method': system-functions/div.md
+          - '<code>⎕DIV</code>: Division Behaviour': system-functions/div.md
           - '<code>⎕DL</code>: Delay': system-functions/dl.md
           - '<code>⎕DM</code>: Diagnostic Message': system-functions/dm.md
           - '<code>⎕DMX</code>: Extended Diagnostic Message': system-functions/dmx.md

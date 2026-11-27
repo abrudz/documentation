@@ -17,7 +17,7 @@ Table: Settings Affecting Behaviour of Primitive Functions { #sysvars }
 |------|-----------------------------------------|
 |[`⎕CT`](../system-functions/ct.md) |Comparison Tolerance         |
 |[`⎕DCT`](../system-functions/dct.md)|Decimal Comp Tolerance      |
-|[`⎕DIV`](../system-functions/div.md)|Division Method             |
+|[`⎕DIV`](../system-functions/div.md)|Division Behaviour          |
 |[`⎕FR`](../system-functions/fr.md) |Floating-Point Representation|
 |[`⎕IO`](../system-functions/io.md) |Index Origin                 |
 |[`⎕ML`](../system-functions/ml.md) |Migration Level              |

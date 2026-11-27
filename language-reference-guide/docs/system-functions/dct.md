@@ -5,7 +5,7 @@ search:
 
 # <span>Decimal Comparison Tolerance</span> `⎕DCT`
 
-The value of `⎕DCT` determines the precision with which two numbers are judged to be equal when the value of `⎕FR` is 1287. If `⎕FR` is 645, the system uses `⎕CT`.
+`⎕DCT` is the relative tolerance within which two numbers are judged to be equal when [`⎕FR`](fr.md) is `1287`, in the [same way](ct.md#tolerant-equality) that [`⎕CT`](ct.md) is when `⎕FR` is `645`.
 
 `⎕DCT` is an [implicit argument](../primitive-functions/notes.md#implicit-arguments) of:
 
@@ -14,16 +14,24 @@ The value of `⎕DCT` determines the precision with which two numbers are judged
 - operators: [`⌸`](../primitive-operators/key.md)
 - system functions: [`⎕FMT`](format-dyadic.md)
 
-`⎕DCT` may be assigned any value in the range from `0` to `2*¯32` (about `2.3283064365386962890625E¯10`). A value of `0` ensures exact comparison. The value in a clear workspace is `1E¯28`. `⎕DCT` has Namespace scope.
+<h2 class="example">Example</h2>
 
-For further information, see [Comparison Tolerance](ct.md).
+The constants are decimal numbers, because `⎕FR` is `1287` when the line that contains them is entered:
 
-<h2 class="example">Examples</h2>
 ```apl
-      ⎕DCT←1E¯10
-      1.00000000001 1.0000001 = 1
+      ⎕FR←1287
+      ⎕DCT←1E¯10
+      1.00000000001 1.0000001 = 1
 1 0
 ```
+
+## Value
+
+`⎕DCT` is a number from `0` to `2*¯32` (about `2.3E¯10`), and `0` makes comparisons exact. Any other value signals `DOMAIN ERROR`. The value in a clear workspace is `1E¯28`.
+
+## Scope
+
+`⎕DCT` has [namespace scope](system-functions-by-category.md#system-variables). A new namespace starts with the value of the namespace that creates it, and a function that localises `⎕DCT` starts with its current value.
 
 <!-- Hidden search keywords -->
 <div style="display: none;">

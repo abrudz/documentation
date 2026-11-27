@@ -5,7 +5,7 @@ search:
 
 # <span>Comparison Tolerance</span> `⎕CT`
 
-The value of `⎕CT` determines the precision with which two numbers are judged to be equal.
+`⎕CT` is the relative tolerance within which two floating-point numbers are judged to be equal.
 
 `⎕CT` is an [implicit argument](../primitive-functions/notes.md#implicit-arguments) of:
 
@@ -14,20 +14,39 @@ The value of `⎕CT` determines the precision with which two numbers are judged 
 - operators: [`⌸`](../primitive-operators/key.md)
 - system functions: [`⎕FMT`](format-dyadic.md)
 
-Two numbers, `X` and `Y`, are judged to be equal if `(|X-Y)≤⎕CT×(|X)⌈|Y`where `≤` is applied without tolerance.
+<h2 class="example">Example</h2>
 
-Thus `⎕CT` is not used as an absolute value in comparisons, but rather specifies a relative value that is dependent on the magnitude of the number with the greater magnitude. It then follows that `⎕CT` has no effect when either of the numbers is zero.
+`0.1+0.2` is not exactly `0.3` as a binary floating-point number, but it is within the tolerance:
 
-`⎕CT` may be assigned any value in the range from `0` to  `2*¯32`  (about `2.3E¯10`). A value of `0` ensures exact comparison.  The value in a clear workspace is `1E¯14`. `⎕CT` has Namespace scope.
-
-If [`⎕FR`](fr.md) is 1287, the system uses `⎕DCT`. See [Decimal Comparison Tolerance ](dct.md).
-
-<h2 class="example">Examples</h2>
 ```apl
-      ⎕CT←1E¯10
-      1.00000000001 1.0000001 = 1
+      0.3=0.1+0.2
+1
+      ⎕CT←0
+      0.3=0.1+0.2
+0
+```
+
+## Tolerant Equality
+
+Two numbers `X` and `Y` are judged to be equal if `(|X-Y)≤⎕CT×(|X)⌈|Y`, where `≤` is applied without tolerance. The tolerance is therefore relative to the larger magnitude of the two numbers, and a number is only equal to `0` if it is exactly `0`.
+
+If [`⎕FR`](fr.md) is `1287`, the tolerance is [`⎕DCT`](dct.md) instead.
+
+<h3 class="example">Example</h3>
+
+```apl
+      ⎕CT←1E¯10
+      1.00000000001 1.0000001 = 1
 1 0
 ```
+
+## Value
+
+`⎕CT` is a number from `0` to `2*¯32` (about `2.3E¯10`), and `0` makes comparisons exact. Any other value signals `DOMAIN ERROR`. The value in a clear workspace is `1E¯14`.
+
+## Scope
+
+`⎕CT` has [namespace scope](system-functions-by-category.md#system-variables). A new namespace starts with the value of the namespace that creates it, and a function that localises `⎕CT` starts with its current value.
 
 <!-- Hidden search keywords -->
 <div style="display: none;">
