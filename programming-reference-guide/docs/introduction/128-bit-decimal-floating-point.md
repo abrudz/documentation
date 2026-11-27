@@ -8,7 +8,7 @@ The original IEE-754 64-bit binary floating point (FP) data type (also known as 
 
 Computations using 128-bit decimal numbers require twice as much space for storage, and run more than an order of magnitude more slowly on platforms which do not provide hardware support for the type. At this time, hardware support is only available from IBM (POWER 6 chips onwards, and recent System z mainframes). Even with hardware support, a slowdown of a factor of 4 can be expected. For this reason, Dyalog allows users to decide whether they need the higher-precision decimal representation, or prefer to stay with the faster and smaller binary representation.
 
-The system variable `⎕FR` (for Floating-point Representation) can be set to the value 645 (the installed default) to indicate 64-bit binary FP, or 1287 for 128-bit decimal FP. The default value of `⎕FR` is configurable.
+The system variable `⎕FR` (for Floating-point Representation) can be set to the value 645 (the installed default) to indicate 64-bit binary FP, or 1287 for 128-bit decimal FP. The configuration parameter [**DEFAULT_FR**](../../windows-installation-and-configuration-guide/configuration-parameters/default-fr.md) sets the value of `⎕FR` in a clear workspace.
 
 Simply put, the value of `⎕FR` decides the type of the result of any floating-point calculation that APL performs. In other words, when entered into the session:
 ```apl
@@ -16,7 +16,7 @@ Simply put, the value of `⎕FR` decides the type of the result of any floating-
      ⎕FR = ⎕DR 3÷4   ⍝ Type of any floating-point result
 ```
 
-`⎕FR` has workspace scope, and may be localised. If so, like most other system variables, it inherits its initial value from the global environment.
+`⎕FR` has [namespace scope](../../language-reference-guide/system-functions/system-functions-by-category.md#system-variables), and may be localised. If so, like most other system variables, it inherits its initial value from the global environment.
 
 However: Although `⎕FR` can vary, the system is not designed to allow "seamless" modification during the running of an application and the dynamic alteration of `⎕FR` is not recommended. Strange effects may occur. For example, the type of a constant contained in a line of code (in a function or class), will depend on the value of `⎕FR` when the function is fixed. Similarly, a constant typed into a line in the Session is evaluated using the value of `⎕FR` that pertained before the line is executed. Thus, it would be possible for the first line of code above to return 0, if it is in the body of a function. If the function was edited and while suspended and execution is resumed, the result would become 1. Consider also:
 ```apl

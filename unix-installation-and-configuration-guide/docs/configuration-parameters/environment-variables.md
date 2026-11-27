@@ -49,6 +49,7 @@ Table: Default workspace values
 |Variable|Notes|
 |---|---|
 |`DEFAULT_DIV`|Default value for `⎕DIV` in a clear workspace.|
+|`DEFAULT_FR`|Default value for `⎕FR` in a clear workspace.|
 |`DEFAULT_IO`|Default value for `⎕IO` in a clear workspace.|
 |`DEFAULT_ML`|Default value for `⎕ML` in a clear workspace.|
 |`DEFAULT_PP`|Default value for `⎕PP` in a clear workspace.|

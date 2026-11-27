@@ -35,7 +35,7 @@ search:
 - `645` – floating-point numbers are represented in the IEEE 754 [*binary64*](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) format, with about 16 significant decimal digits and magnitudes up to about `1.8E308` (default).
 - `1287` – floating-point numbers are represented in the IEEE 754-2008 [*decimal128*](https://en.wikipedia.org/wiki/Decimal128_floating-point_format) format, with 34 significant decimal digits and magnitudes up to about `1E6145`.
 
-Any other value signals `DOMAIN ERROR`. The value in a clear workspace is `645`.
+Any other value signals `DOMAIN ERROR`. The configuration parameter [**DEFAULT_FR**](../../windows-installation-and-configuration-guide/configuration-parameters/default-fr.md) sets the value in a clear workspace.
 
 ## Changing the Representation
 
